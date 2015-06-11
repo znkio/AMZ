@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+    <excludes>
+        <pattern>/json/*</pattern>
+        <pattern>/txt/*</pattern>
+      </excludes>
+    <decorator name="master" page="master.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+    <decorator name="secured" page="master.jsp">
+       <pattern>/secured*</pattern>    
+    </decorator>
+     <decorator name="nodec" page="nodec.jsp">
+        <pattern>/no-tpl/*</pattern>
+        <pattern>/reload</pattern>
+        <pattern>/alert</pattern>
+    </decorator>
+    
+</decorators>

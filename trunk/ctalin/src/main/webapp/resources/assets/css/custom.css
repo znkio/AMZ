@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+body {
+	padding-top: 70px;
+	/* Because of bootstrap fixed top navbar, we need some padding on top */
+}
+
