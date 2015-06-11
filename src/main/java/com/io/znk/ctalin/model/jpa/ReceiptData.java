@@ -5,17 +5,19 @@
  */
 package com.io.znk.ctalin.model.jpa;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-/**
- *
- * @author adamopoa
- */
+@Table(name = "receiptdata")
+@Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReceiptData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,14 +40,25 @@ public class ReceiptData {
     @Column
     private Double vatAmount;
 
-    public ReceiptData(Long receiptId, Long issuerAFM, Long receiptNumber, Date transactionDate, Double totalAmount, Double vatAmount) {
+    /***
+     * το customerΑFM γίνεται update όταν ο χρήστης κανει submit την αποδειξη στο σύστημα η οποία έγινε insert από την εταιρεία. 
+     * Αν δεν υπάρχει επειδή ο καταστηματάρχης ηταν offline  θα γίνεται insert από τον πελάτη.
+     */
+    @Column
+    private Long customerAFM;
+
+    public ReceiptData(Long receiptId, Long issuerAFM, Long receiptNumber, Date transactionDate, Double totalAmount, Double vatAmount, Long customerAFM) {
         this.receiptId = receiptId;
         this.issuerAFM = issuerAFM;
         this.receiptNumber = receiptNumber;
         this.transactionDate = transactionDate;
         this.totalAmount = totalAmount;
         this.vatAmount = vatAmount;
+        this.customerAFM = customerAFM;
     }
+
+    
+    
 
     public Long getReceiptId() {
         return receiptId;
@@ -95,12 +108,18 @@ public class ReceiptData {
         this.vatAmount = vatAmount;
     }
 
-    @Override
-    public String toString() {
-        return "ReceiptData{" + "receiptId=" + receiptId + ", issuerAFM=" + issuerAFM + ", receiptNumber=" + receiptNumber + ", transactionDate=" + transactionDate + ", totalAmount=" + totalAmount + ", vatAmount=" + vatAmount + '}';
+    public Long getCustomerAFM() {
+        return customerAFM;
     }
 
-    
+    public void setCustomerAFM(Long customerAFM) {
+        this.customerAFM = customerAFM;
+    }
+
+    @Override
+    public String toString() {
+        return "ReceiptData{" + "receiptId=" + receiptId + ", issuerAFM=" + issuerAFM + ", receiptNumber=" + receiptNumber + ", transactionDate=" + transactionDate + ", totalAmount=" + totalAmount + ", vatAmount=" + vatAmount + ", customerAFM=" + customerAFM + '}';
+    }
     
     
     
