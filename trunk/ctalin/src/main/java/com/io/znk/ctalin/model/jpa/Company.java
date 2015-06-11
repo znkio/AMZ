@@ -17,56 +17,94 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Company implements Serializable {
+    private static final long serialVersionUID = 1085548653431275261L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private Long companyId;
 
-	private static final long serialVersionUID = 1085548653431275261L;
+    @NotNull
+    @Column(unique = true)
+    private String title;
 
-	/**
-	 * 
-	 */
+    @Column
+    private String longitude;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
-	private Long companyId;
+    @Column
+    private String latitude;
 
-	@NotNull
-	@Column(unique = true)
-	private String title;
+    @Column
+    private String address;
 
-	// @Lob
-	@Column
-	private String comments;
+    @Column
+    private Long companyAFM;
 
-	public Company() {
-	}
+    public Company() {
+    }
+    public Company(Long companyId, String title, String longitude, String latitude, String address, Long companyAFM) {
+        this.companyId = companyId;
+        this.title = title;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.address = address;
+        this.companyAFM = companyAFM;
+    }
 
-	public Company(String title, String comments) {
-		this.title = title;
-		this.comments = comments;
-	}
+    public String getLongitude() {
+        return longitude;
+    }
 
-	public Long getCompanyId() {
-		return companyId;
-	}
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 
-	public void setCompanyId(Long companyId) {
-		this.companyId = companyId;
-	}
+    public String getLatitude() {
+        return latitude;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public String getComments() {
-		return comments;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
+    public Long getCompanyAFM() {
+        return companyAFM;
+    }
+
+    public void setCompanyAFM(Long companyAFM) {
+        this.companyAFM = companyAFM;
+    }
+
+    
+
+    public Long getCompanyId() {
+            return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+            this.companyId = companyId;
+    }
+
+    public String getTitle() {
+            return title;
+    }
+
+    public void setTitle(String title) {
+            this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" + "companyId=" + companyId + ", title=" + title + ", longitude=" + longitude + ", latitude=" + latitude + ", address=" + address + ", companyAFM=" + companyAFM + '}';
+    }
+
+	
 
 }
