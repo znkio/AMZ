@@ -39,22 +39,18 @@ public class Company implements Serializable {
     @Size(min = 1, max = 36)
     private String companyId;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 255)
     private String address;
     @Basic(optional = false)
     @NotNull
     private Long companyAFM;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 255)
     private String latitude;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 255)
     private String longitude;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 255)
     private String title;
     @JoinColumn(name = "catID", referencedColumnName = "catID")
@@ -68,6 +64,9 @@ public class Company implements Serializable {
     @NotNull
     @Column(name = "verified", columnDefinition = "bit", length = 1)
     private Boolean verified;
+    @Basic(optional = false)
+    @Size(min = 1, max = 15)
+    private String phone;
 
     public Company() {
     }
@@ -76,6 +75,14 @@ public class Company implements Serializable {
         this.companyId = companyId;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    
     public Boolean getProvisional() {
         return provisional;
     }
