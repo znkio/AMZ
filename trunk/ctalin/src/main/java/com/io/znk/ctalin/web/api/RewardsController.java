@@ -26,17 +26,17 @@ public class RewardsController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ResponseEntity<Rewards> updateach(@RequestBody Rewards rwd) {
+    public ResponseEntity<Rewards> updateReward(@RequestBody Rewards rwd) {
         return new ResponseEntity(this.rs.updateRewards(rwd), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<Rewards> createach(@RequestBody Rewards rwd) {
+    public ResponseEntity<Rewards> createReward(@RequestBody Rewards rwd) {
         return new ResponseEntity(this.rs.updateRewards(rwd), HttpStatus.OK);
     }
 
     @RequestMapping(value="/{id}",method = RequestMethod.DELETE)
-    public ResponseEntity delach(@PathVariable String id) {
+    public ResponseEntity delReward(@PathVariable String id) {
         if(id==null||id.equals("")){
             return new ResponseEntity("Cannot delete with empty id.",HttpStatus.BAD_REQUEST);
         }
