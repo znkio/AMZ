@@ -45,7 +45,7 @@ public class CompanyController {
 
     
     @RequestMapping(value = "/nearme", method = RequestMethod.GET)
-    public ResponseEntity<List<Company>> getachs() {
+    public ResponseEntity<List<Company>> getNearCompanies() {
 
         return new ResponseEntity(this.cs.findAll(), HttpStatus.OK);
     }
