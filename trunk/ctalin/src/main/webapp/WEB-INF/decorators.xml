@@ -15,7 +15,6 @@
         <pattern>/no-tpl/*</pattern>
         <pattern>/reload</pattern>
         <pattern>/alert</pattern>
-        <pattern>/mobile*</pattern>
     </decorator>
     
 </decorators>
