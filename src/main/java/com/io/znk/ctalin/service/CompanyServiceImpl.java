@@ -58,8 +58,8 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<Company> findProximal(String lot, String lat, String radius) {
-        String querystr = "SELECT address, title, latitude, longitude, (6371 * acos( cos( radians(:lat) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(:lot) ) + sin( radians(:lat) ) * sin( radians( latitude ) ) ) ) AS distance FROM company HAVING distance <= :radius ORDER BY distance";
-        Query q = this.em.createNativeQuery(querystr);
+        String querystr = "SELECT address, title, latitude, longitude, (6371 * acos(cos(radians(?1)) * cos(radians(latitude) ) * cos( radians( longitude ) - radians(?2) ) + sin( radians(?3) ) * sin( radians( latitude ) ) ) ) AS distance FROM company HAVING distance <?4 ORDER BY distance";
+        Query q = this.em.createNativeQuery(querystr).setParameter(1, lat).setParameter(2, lot).setParameter(3, lat).setParameter(4, radius);
         List<Company> ret = (List<Company>) q.getResultList();
         return ret;
     }
