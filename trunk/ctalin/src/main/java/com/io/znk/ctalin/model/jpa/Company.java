@@ -38,19 +38,19 @@ public class Company implements Serializable {
     @NotNull
     @Size(min = 1, max = 36)
     private String companyId;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Size(min = 1, max = 255)
     private String address;
     @Basic(optional = false)
     @NotNull
     private Long companyAFM;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Size(min = 1, max = 255)
     private String latitude;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Size(min = 1, max = 255)
     private String longitude;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Size(min = 1, max = 255)
     private String title;
     @JoinColumn(name = "catID", referencedColumnName = "catID")
@@ -64,15 +64,48 @@ public class Company implements Serializable {
     @NotNull
     @Column(name = "verified", columnDefinition = "bit", length = 1)
     private Boolean verified;
-    @Basic(optional = false)
+    @Basic(optional = true)
     @Size(min = 1, max = 15)
     private String phone;
+    @Basic(optional = true)
+    @Size(min = 1, max = 45)
+    private String email;
+    @Basic(optional = true)
+    @Size(min = 1, max = 300)
+    private String fsid;
+    @Basic(optional = true)
+    @Size(min = 1, max = 300)
+    private String fbid;
+
+    public String getFsid() {
+        return fsid;
+    }
+
+    public void setFsid(String fsid) {
+        this.fsid = fsid;
+    }
+
+    public String getFbid() {
+        return fbid;
+    }
+
+    public void setFbid(String fbid) {
+        this.fbid = fbid;
+    }
 
     public Company() {
     }
 
     public Company(String companyId) {
         this.companyId = companyId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhone() {
@@ -82,7 +115,7 @@ public class Company implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
+
     public Boolean getProvisional() {
         return provisional;
     }
