@@ -72,6 +72,29 @@ public class Customer implements Serializable {
     @JoinColumn(name = "cityID", referencedColumnName = "cityID")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private City cityID;
+    @Basic(optional = true)
+    @Size(min = 1, max = 300)
+    private String fsid;
+    @Basic(optional = true)
+    @Size(min = 1, max = 300)
+    private String fbid;
+
+    public String getFsid() {
+        return fsid;
+    }
+
+    public void setFsid(String fsid) {
+        this.fsid = fsid;
+    }
+
+    public String getFbid() {
+        return fbid;
+    }
+
+    public void setFbid(String fbid) {
+        this.fbid = fbid;
+    }
+
 
     public Customer() {
     }
