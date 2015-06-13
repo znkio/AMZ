@@ -54,11 +54,11 @@ public class ReceiptServiceImpl implements ReceiptService {
 
     @Override
     public Receipt findReceipt(Receipt cus) {
-        if (cus.getReceiptId() != null && !cus.getReceiptId().equals("")) {
-            return this.cur.findOne(cus.getReceiptId());
-        } else {
-            throw new RuntimeException("Tried to update with a null primary key");
+        if (cus.getReceiptId() == null) {
+            return null;            
         }
+        return this.cur.findOne(cus.getReceiptId());
+
     }
 
     @Override
@@ -69,33 +69,54 @@ public class ReceiptServiceImpl implements ReceiptService {
     //main receipt registration method.All events here!
     @Override
     public Receipt createReceipt(Receipt receipt) {
-        if (triggeredRewards()) {
+        //check if it was a customer request
+        if (receipt.getCustomerID() != null && triggeredRewards()) {
             //do something with push notifications
         }
+
         Company co = receipt.getCompanyID();
-        //search if company is registered.By AFM.the only safe choice
-        Company rco = this.companyRepository.findByCompanyAFM(co.getCompanyAFM());
-        if (co.getCompanyAFM() != null && rco != null) {
-            //check if the company has claimed its profile
-            if (rco.getProvisional()) {
-                //merge them(naively at nulls)
-                if (rco.getAddress() == null && co.getAddress() != null) {
-                    rco.setAddress(co.getAddress());
+        if (co == null) {
+            return null;
+        } else {
+            //search if company is registered.By AFM.the only safe choice
+            Company rco = this.companyRepository.findByCompanyAFM(co.getCompanyAFM());
+            if (rco != null) {
+                //check if the company has claimed its profile
+                if (rco.getProvisional()) {
+                    //merge them(naively at nulls)
+                    if (rco.getAddress() == null && co.getAddress() != null) {
+                        rco.setAddress(co.getAddress());
+                    }
+                    if (rco.getLatitude() == null && co.getLatitude() != null) {
+                        rco.setLatitude(co.getLatitude());
+                    }
+                    if (rco.getLongitude() == null && co.getLongitude() != null) {
+                        rco.setLongitude(co.getLongitude());
+                    }
+                    if (rco.getTitle() == null && co.getTitle() != null) {
+                        rco.setTitle(co.getTitle());
+                    }
+                    if (rco.getFsid() == null && co.getFsid() != null) {
+                        rco.setFsid(co.getFsid());
+                    }
+                    if (rco.getFbid() == null && co.getFbid() != null) {
+                        rco.setFbid(co.getFbid());
+                    }
+                    if (rco.getPhone() == null && co.getPhone() != null) {
+                        rco.setPhone(co.getPhone());
+                    }
+                    rco = this.companyRepository.save(rco);
+                    receipt.setCompanyID(rco);
                 }
-                if (rco.getLatitude() == null && co.getLatitude() != null) {
-                    rco.setLatitude(co.getLatitude());
-                }
-                if (rco.getLongitude() == null && co.getLongitude() != null) {
-                    rco.setLongitude(co.getLongitude());
-                }
-                if (rco.getTitle() == null && co.getTitle() != null) {
-                    rco.setTitle(co.getTitle());
-                }
-                rco = this.companyRepository.save(rco);
-                receipt.setCompanyID(rco);
+            } else {
+                co.setProvisional(true);
+                co.setVerified(false);
+
+                co = this.companyRepository.save(co);
+                receipt.setCompanyID(co);
             }
+            return this.cur.save(receipt);
         }
-        return null;
     }
 
     private boolean triggeredRewards() {

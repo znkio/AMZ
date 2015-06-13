@@ -12,6 +12,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -19,6 +20,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -31,22 +33,23 @@ import javax.validation.constraints.Size;
 public class Rewardcrit implements Serializable {
 
     private static final Long serialVersionUID = 1L;
+    @GenericGenerator(name = "generator", strategy = "uuid.hex")
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(generator = "generator")
     @NotNull
     @Size(min = 1, max = 36)
     private String rewardCritID;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 45)
     private String description;
-    @Basic(optional = false)
+
     @NotNull
     private Long numReceipts;
-    @Basic(optional = false)
+
     @NotNull
     private Integer amountMin;
-    @Basic(optional = false)
+
     @NotNull
     @Column(name = "trigrFlag", columnDefinition = "bit", length = 1)
     private Boolean trigrFlag;

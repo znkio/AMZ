@@ -26,12 +26,12 @@ public class ReceiptsController {
     ReceiptService rs;
 
     //customer side
-    @RequestMapping(value = "/{customerId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/customer/{customerId}", method = RequestMethod.GET)
     public ResponseEntity<List<Receipt>> getachs(@PathVariable String customerId) {
         return new ResponseEntity(this.rs.findByCustomer(new Customer(customerId)), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{customerId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/customer/{customerId}", method = RequestMethod.PUT)
     public ResponseEntity<Receipt> putachs(@PathVariable String customerId, @RequestBody Receipt receipt) {
         Customer acust = new Customer(customerId);
         receipt.setCustomerID(acust);
@@ -41,8 +41,11 @@ public class ReceiptsController {
         return new ResponseEntity(this.rs.createReceipt(receipt), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{customerId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/customer/{customerId}", method = RequestMethod.POST)
     public ResponseEntity<Receipt> postachs(@PathVariable String customerId, @RequestBody Receipt receipt) {
+        if(customerId==null || customerId==""){
+            return new ResponseEntity("you cannot register without a valid customerId", HttpStatus.ALREADY_REPORTED);
+        }
         Customer acust = new Customer(customerId);
         receipt.setCustomerID(acust);
         return new ResponseEntity(this.rs.updateReceipt(receipt), HttpStatus.OK);
