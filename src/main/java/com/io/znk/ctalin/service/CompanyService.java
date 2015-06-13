@@ -13,5 +13,5 @@ public interface CompanyService {
 
     Company findCompany(Company com);
 
-    List<Company> findProximal(String longitude, String latitude,String radius);
+    List<Company> findProximal(String lot, String lat, String radius);
 }
