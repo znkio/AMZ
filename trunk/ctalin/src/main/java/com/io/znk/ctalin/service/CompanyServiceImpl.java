@@ -1,9 +1,13 @@
 package com.io.znk.ctalin.service;
 
 import com.io.znk.ctalin.model.jpa.Company;
+import com.io.znk.ctalin.model.jpa.Customer;
 import com.io.znk.ctalin.repository.jpa.CompanyRepository;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.jboss.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,8 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Autowired
     CompanyRepository cmr;
+    @PersistenceContext(unitName = "entityManagerFactory")
+    EntityManager em;
 
     @Override
     public List<Company> findAll() {
@@ -45,9 +51,16 @@ public class CompanyServiceImpl implements CompanyService {
     public Company findCompany(Company com) {
         if (com.getCompanyId() != null && !com.getCompanyId().equals("")) {
             return this.cmr.findOne(com.getCompanyId());
-        }else{
+        } else {
             throw new RuntimeException("Tried to update with a null primcmry key");
-        }        
+        }
     }
 
+    @Override
+    public List<Company> findProximal(String longitude, String latitude, Integer radius) {
+        String querystr = "//todo the query here plus parameters";
+        Query q = this.em.createNativeQuery(querystr);
+        List<Company> ret = (List<Company>) q.getResultList();
+        return ret;
+    }
 }

@@ -13,5 +13,4 @@ public interface CustomerService {
         Customer updateCustomer(Customer cus);
         
         Customer findCustomer(Customer cus);
-        
 }
