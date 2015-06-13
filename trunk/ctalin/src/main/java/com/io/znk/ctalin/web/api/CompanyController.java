@@ -1,0 +1,48 @@
+package com.io.znk.ctalin.web.api;
+
+import com.io.znk.ctalin.model.jpa.Company;
+import com.io.znk.ctalin.service.CompanyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@Controller
+@RequestMapping(value = "/mobile/api/companies")
+public class CompanyController {
+
+    @Autowired
+    CompanyService cs;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ResponseEntity<List<Company>> getachs() {
+
+        return new ResponseEntity(this.cs.findAll(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public ResponseEntity<Company> updateach(@RequestBody Company comp) {
+        return new ResponseEntity(this.cs.updateCompany(comp), HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public ResponseEntity<Company> createach(@RequestBody Company comp) {
+        return new ResponseEntity(this.cs.updateCompany(comp), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity delach(@PathVariable String id) {
+        if (id == null || id.equals("")) {
+            return new ResponseEntity("Cannot delete with empty id.", HttpStatus.BAD_REQUEST);
+        }
+        Company comp = new Company(id);
+        return new ResponseEntity(this.cs.deleteCompany(comp), HttpStatus.OK);
+    }
+
+    
+}
