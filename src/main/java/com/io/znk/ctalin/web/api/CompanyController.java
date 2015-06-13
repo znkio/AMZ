@@ -19,18 +19,18 @@ public class CompanyController {
     CompanyService cs;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ResponseEntity<List<Company>> getachs() {
+    public ResponseEntity<List<Company>> getCompanies() {
 
         return new ResponseEntity(this.cs.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ResponseEntity<Company> updateach(@RequestBody Company comp) {
+    public ResponseEntity<Company> updateCompany(@RequestBody Company comp) {
         return new ResponseEntity(this.cs.updateCompany(comp), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<Company> createach(@RequestBody Company comp) {
+    public ResponseEntity<Company> createCompany(@RequestBody Company comp) {
         return new ResponseEntity(this.cs.updateCompany(comp), HttpStatus.OK);
     }
 
@@ -43,5 +43,13 @@ public class CompanyController {
         return new ResponseEntity(this.cs.deleteCompany(comp), HttpStatus.OK);
     }
 
+    
+    @RequestMapping(value = "/nearme", method = RequestMethod.GET)
+    public ResponseEntity<List<Company>> getachs() {
+
+        return new ResponseEntity(this.cs.findAll(), HttpStatus.OK);
+    }
+    
+    
     
 }
