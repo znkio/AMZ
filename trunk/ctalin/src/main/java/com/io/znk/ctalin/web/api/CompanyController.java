@@ -1,5 +1,4 @@
 package com.io.znk.ctalin.web.api;
-
 import com.io.znk.ctalin.model.jpa.Company;
 import com.io.znk.ctalin.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,7 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity delach(@PathVariable String id) {
+    public ResponseEntity delCompany(@PathVariable String id) {
         if (id == null || id.equals("")) {
             return new ResponseEntity("Cannot delete with empty id.", HttpStatus.BAD_REQUEST);
         }
