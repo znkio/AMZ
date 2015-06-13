@@ -41,7 +41,7 @@ public class AchievementController {
             return new ResponseEntity("Cannot delete with empty id.",HttpStatus.BAD_REQUEST);
         }
         Achievement ach=new Achievement(id);
-        return new ResponseEntity(this.as.updateAchievement(ach), HttpStatus.OK);
+        return new ResponseEntity(this.as.deleteAchievement(ach), HttpStatus.OK);
     }
     
 }
