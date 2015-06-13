@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping(value = "/mobile/api/rewards")
-public class RewardController {
+public class RewardsController {
 
     @Autowired
     RewardsService rs;
