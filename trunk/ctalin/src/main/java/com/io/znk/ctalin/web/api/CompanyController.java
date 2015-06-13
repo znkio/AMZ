@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/mobile/api/companies")
@@ -45,9 +46,11 @@ public class CompanyController {
 
     
     @RequestMapping(value = "/nearme", method = RequestMethod.GET)
-    public ResponseEntity<List<Company>> getNearCompanies() {
+    public ResponseEntity<List<Company>> getNearCompanies(@RequestParam("lot") String lot,
+                                                            @RequestParam("lat") String lat,
+                                                                @RequestParam("radius") String radius) {
 
-        return new ResponseEntity(this.cs.findAll(), HttpStatus.OK);
+        return new ResponseEntity(this.cs.findProximal(lot,lat,radius), HttpStatus.OK);
     }
     
     
