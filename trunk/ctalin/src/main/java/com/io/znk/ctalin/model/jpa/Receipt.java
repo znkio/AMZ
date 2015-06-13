@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,6 +21,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -32,29 +34,30 @@ import javax.validation.constraints.Size;
 public class Receipt implements Serializable {
 
     private static final Long serialVersionUID = 1L;
+    @GenericGenerator(name = "generator", strategy = "uuid.hex")
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(generator = "generator")
     @NotNull
     @Size(min = 1, max = 36)
     private String receiptId;
-    @Basic(optional = false)
+
     @NotNull
     private Long receiptNumber;
-    @Basic(optional = false)
+
     @NotNull
     private Double totalAmount;
-    @Basic(optional = false)
+
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     private Date transactionDate;
-    @Basic(optional = false)
+
     @NotNull
     private Double vatAmount;
     @JoinColumn(name = "companyID", referencedColumnName = "companyId")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Company companyID;
     @JoinColumn(name = "customerID", referencedColumnName = "customerId")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
     private Customer customerID;
 
     public Receipt() {

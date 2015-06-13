@@ -13,6 +13,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,6 +25,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -36,48 +38,60 @@ import javax.validation.constraints.Size;
 public class Customer implements Serializable {
 
     private static final Long serialVersionUID = 1L;
+    @GenericGenerator(name = "generator", strategy = "uuid.hex")
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(generator = "generator")
     @NotNull
     @Size(min = 1, max = 36)
     private String customerId;
-    @Basic(optional = false)
+
     @NotNull
     private Long customerAFM;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 255)
     private String customerFname;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 255)
     private String customerLname;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 45)
     private String email;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 50)
     private String lastKnownLoc;
-    @Basic(optional = false)
+
     @NotNull
     @Column(name = "isMale", columnDefinition = "bit", length = 1)
     private Boolean isMale;
-    @Basic(optional = false)
+
     @NotNull
     @Temporal(TemporalType.DATE)
     private Date dob;
-    @JoinColumn(name = "cityID", referencedColumnName = "cityID")
-    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    @JoinColumn(name = "city", referencedColumnName = "cityID")
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
     private City cityID;
-    @Basic(optional = true)
+
     @Size(min = 1, max = 300)
     private String fsid;
-    @Basic(optional = true)
+
     @Size(min = 1, max = 300)
     private String fbid;
+
+    @Size(min = 1, max = 2000)
+    private String qrstring;
+
+    public String getQrstring() {
+        return qrstring;
+    }
+
+    public void setQrstring(String qrstring) {
+        this.qrstring = qrstring;
+    }
 
     public String getFsid() {
         return fsid;
@@ -94,7 +108,6 @@ public class Customer implements Serializable {
     public void setFbid(String fbid) {
         this.fbid = fbid;
     }
-
 
     public Customer() {
     }

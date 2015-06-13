@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -18,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -30,12 +32,13 @@ import javax.validation.constraints.Size;
 public class Nomos implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @GenericGenerator(name = "generator", strategy = "uuid.hex")
     @Id
-    @Basic(optional = false)
+    @GeneratedValue(generator = "generator")
     @NotNull
     @Size(min = 1, max = 36)
     private String nomosID;
-    @Basic(optional = false)
+
     @NotNull
     @Size(min = 1, max = 50)
     private String description;
