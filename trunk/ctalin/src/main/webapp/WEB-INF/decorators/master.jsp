@@ -27,13 +27,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">SOLID.</a>
+          <a class="navbar-brand" href="<c:url value="/mobile"/>">nTax</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
+            <li class="active"><a class="navbar-brand" href="<c:url value="/mobile"/>">HOME</a></li>
+            <li><a class="navbar-brand" href="<c:url value="/about"/>">ABOUT</a></li>
+            <li><a class="navbar-brand" href="<c:url value="/contact"/>">CONTACT</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -61,7 +61,7 @@
 					<h5>More Lorem Ipsum added here too.</h5>				
 				</div>
 				<div class="col-lg-8 col-lg-offset-2 himg">
-					<img src="resources/assets/img/browser.png" class="img-responsive">
+					<img src="resources/assets/img/amz7.gif" class="img-responsive">
 				</div>
 			</div><!-- /row -->
 	    </div> <!-- /container -->
