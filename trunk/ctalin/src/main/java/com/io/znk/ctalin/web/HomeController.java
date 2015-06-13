@@ -24,7 +24,6 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/mobile", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
@@ -32,6 +31,37 @@ public class HomeController {
 		return "home";
 	}
         
+
+        @RequestMapping(value = "/about", method = RequestMethod.GET)
+	public String about(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "about";
+	}
+
+        @RequestMapping(value = "/contact", method = RequestMethod.GET)
+	public String contact(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "contact";
+	}
+
+        @RequestMapping(value = "/pages", method = RequestMethod.GET)
+	public String pages(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "pages";
+	}
+
 
 	
 }

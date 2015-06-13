@@ -205,7 +205,7 @@ a:focus {
 ################################################################# */
 
 #headerwrap {
-	background-color: #00b3fe;
+	background-color: #efefef;
 	min-height: 550px;
 	padding-top: 100px;
 	padding-bottom: 0px;
@@ -213,12 +213,12 @@ a:focus {
 }
 
 #headerwrap h3, h5 {
-	color: white;
+	color:#333;
 	font-weight: 400;
 }
 
 #headerwrap h1 {
-	color: white;
+        color:#333;
 	margin-bottom: 25px;
 }
 
