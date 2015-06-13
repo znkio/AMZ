@@ -4,6 +4,9 @@ import com.io.znk.ctalin.model.jpa.Customer;
 import com.io.znk.ctalin.repository.jpa.CustomerRepository;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.jboss.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepository cur;
 
+    
     @Override
     public List<Customer> findAll() {
         List<Customer> ret = new ArrayList();
@@ -49,5 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException("Tried to update with a null primary key");
         }        
     }
+
+    
 
 }
