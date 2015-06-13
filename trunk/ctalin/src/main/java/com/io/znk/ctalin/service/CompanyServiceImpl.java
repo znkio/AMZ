@@ -1,7 +1,6 @@
 package com.io.znk.ctalin.service;
 
 import com.io.znk.ctalin.model.jpa.Company;
-import com.io.znk.ctalin.model.jpa.Customer;
 import com.io.znk.ctalin.repository.jpa.CompanyRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +55,13 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
+
     @Override
-    public List<Company> findProximal(String longitude, String latitude, Integer radius) {
-        String querystr = "//todo the query here plus parameters";
+    public List<Company> findProximal(String lot, String lat, String radius) {
+        String querystr = "SELECT address, title, latitude, longitude, (6371 * acos( cos( radians(:lat) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(:lot) ) + sin( radians(:lat) ) * sin( radians( latitude ) ) ) ) AS distance FROM company HAVING distance <= :radius ORDER BY distance";
         Query q = this.em.createNativeQuery(querystr);
         List<Company> ret = (List<Company>) q.getResultList();
         return ret;
     }
+
 }
