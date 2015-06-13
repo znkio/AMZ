@@ -48,9 +48,10 @@ public class RewardCrit implements Serializable {
     @Basic(optional = false)
     @NotNull
     private Integer amountMin;
+    
     @Basic(optional = false)
     @NotNull
-    private boolean trigrFlag;
+    private Short trigrFlag;
 
     public RewardCrit() {
     }
@@ -59,7 +60,7 @@ public class RewardCrit implements Serializable {
         this.rewardCritID = rewardCritID;
     }
 
-    public RewardCrit(String rewardCritID, String description, Long numReceipts, Integer amountMin, boolean trigrFlag) {
+    public RewardCrit(String rewardCritID, String description, Long numReceipts, Integer amountMin, Short trigrFlag) {
         this.rewardCritID = rewardCritID;
         this.description = description;
         this.numReceipts = numReceipts;
@@ -99,11 +100,11 @@ public class RewardCrit implements Serializable {
         this.amountMin = amountMin;
     }
 
-    public boolean getTrigrFlag() {
+    public Short getTrigrFlag() {
         return trigrFlag;
     }
 
-    public void setTrigrFlag(boolean trigrFlag) {
+    public void setTrigrFlag(Short trigrFlag) {
         this.trigrFlag = trigrFlag;
     }
 
