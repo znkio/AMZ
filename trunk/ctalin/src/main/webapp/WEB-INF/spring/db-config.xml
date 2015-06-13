@@ -17,9 +17,9 @@
 	
     <bean id="mainDatasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://monachus.znk.io:3306/rouf" />
-        <property name="user" value="roufianos" />
-        <property name="password" value="v-f0r-var0ufak1s" />
+        <property name="jdbcUrl" value="jdbc:mysql://172.16.177.148:3306" />
+        <property name="user" value="root" />
+        <property name="password" value="iuaxhlod" />
         <property name="minPoolSize" value="10" />
         <property name="maxPoolSize" value="50" />
         <property name="maxStatements" value="25" />
@@ -41,8 +41,8 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <prop key="hibernate.default_schema">rouf</prop>
+                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.default_schema">loukia</prop>
             </props>
         </property>
     </bean>
