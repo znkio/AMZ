@@ -5,12 +5,12 @@
  */
 package com.io.znk.ctalin.repository.jpa;
 
-import com.io.znk.ctalin.model.jpa.CompanyCat;
+import com.io.znk.ctalin.model.jpa.Companycat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface CompanyCatRepository extends JpaRepository<CompanyCat, String> {
+public interface CompanyCatRepository extends JpaRepository<Companycat, String> {
 
 }

@@ -1,17 +1,17 @@
 package com.io.znk.ctalin.service;
 
-import com.io.znk.ctalin.model.jpa.RewardCrit;
+import com.io.znk.ctalin.model.jpa.Rewardcrit;
 import java.util.List;
 
 
 public interface RewardCritService {
 
-	List<RewardCrit> findAll();
+	List<Rewardcrit> findAll();
         
-        boolean deleteRewardCrit(RewardCrit recr);
+        boolean deleteRewardCrit(Rewardcrit recr);
         
-        RewardCrit updateRewardCrit(RewardCrit recr);
+        Rewardcrit updateRewardCrit(Rewardcrit recr);
         
-        RewardCrit findRewardCrit(RewardCrit recr);
+        Rewardcrit findRewardCrit(Rewardcrit recr);
         
 }

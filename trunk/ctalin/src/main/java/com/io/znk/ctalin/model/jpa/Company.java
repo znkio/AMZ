@@ -6,12 +6,12 @@
 package com.io.znk.ctalin.model.jpa;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,22 +21,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author gmotux
  */
 @Entity
-@Table(catalog = "loukia", schema = "")
+@Table(name = "company")
 @NamedQueries({
     @NamedQuery(name = "Company.findAll", query = "SELECT c FROM Company c")})
 public class Company implements Serializable {
+
     private static final Long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @GenericGenerator(name = "generator", strategy = "uuid.hex")
-    @GeneratedValue(generator = "generator")
     @NotNull
     @Size(min = 1, max = 36)
     private String companyId;
@@ -61,13 +59,37 @@ public class Company implements Serializable {
     private String title;
     @JoinColumn(name = "catID", referencedColumnName = "catID")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private CompanyCat catID;
+    private Companycat catID;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "provisional", columnDefinition = "bit", length = 1)
+    private Boolean provisional;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "verified", columnDefinition = "bit", length = 1)
+    private Boolean verified;
 
     public Company() {
     }
 
     public Company(String companyId) {
         this.companyId = companyId;
+    }
+
+    public Boolean getProvisional() {
+        return provisional;
+    }
+
+    public void setProvisional(Boolean provisional) {
+        this.provisional = provisional;
+    }
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
     }
 
     public Company(String companyId, String address, Long companyAFM, String latitude, String longitude, String title) {
@@ -127,11 +149,11 @@ public class Company implements Serializable {
         this.title = title;
     }
 
-    public CompanyCat getCatID() {
+    public Companycat getCatID() {
         return catID;
     }
 
-    public void setCatID(CompanyCat catID) {
+    public void setCatID(Companycat catID) {
         this.catID = catID;
     }
 
@@ -159,5 +181,5 @@ public class Company implements Serializable {
     public String toString() {
         return "com.io.znk.ctalin.model.jpa.Company[ companyId=" + companyId + " ]";
     }
-    
+
 }

@@ -7,12 +7,11 @@ package com.io.znk.ctalin.model.jpa;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,21 +23,19 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author gmotux
  */
 @Entity
-@Table(catalog = "loukia", schema = "")
+@Table(name = "rewards")
 @NamedQueries({
     @NamedQuery(name = "Rewards.findAll", query = "SELECT r FROM Rewards r")})
 public class Rewards implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @GenericGenerator(name = "generator", strategy = "uuid.hex")
-    @GeneratedValue(generator = "generator")
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 36)
@@ -56,7 +53,7 @@ public class Rewards implements Serializable {
     private Company companyID;
     @JoinColumn(name = "rewardCritID", referencedColumnName = "rewardCritID")
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private RewardCrit rewardCritID;
+    private Rewardcrit rewardCritID;
 
     public Rewards() {
     }
@@ -103,11 +100,11 @@ public class Rewards implements Serializable {
         this.companyID = companyID;
     }
 
-    public RewardCrit getRewardCritID() {
+    public Rewardcrit getRewardCritID() {
         return rewardCritID;
     }
 
-    public void setRewardCritID(RewardCrit rewardCritID) {
+    public void setRewardCritID(Rewardcrit rewardCritID) {
         this.rewardCritID = rewardCritID;
     }
 
@@ -135,5 +132,5 @@ public class Rewards implements Serializable {
     public String toString() {
         return "com.io.znk.ctalin.model.jpa.Rewards[ rewardID=" + rewardID + " ]";
     }
-    
+
 }

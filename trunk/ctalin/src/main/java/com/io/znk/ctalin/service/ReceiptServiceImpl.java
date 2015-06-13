@@ -1,7 +1,7 @@
 package com.io.znk.ctalin.service;
 
-import com.io.znk.ctalin.model.jpa.Companycat;
-import com.io.znk.ctalin.repository.jpa.CompanyCatRepository;
+import com.io.znk.ctalin.model.jpa.Receipt;
+import com.io.znk.ctalin.repository.jpa.ReceiptRepository;
 import java.util.ArrayList;
 import java.util.List;
 import org.jboss.logging.Logger;
@@ -12,22 +12,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class CompanyCatServiceImpl implements CompanyCatService {
+public class ReceiptServiceImpl implements ReceiptService {
 
     @Autowired
-    CompanyCatRepository ccr;
+    ReceiptRepository cur;
 
     @Override
-    public List<Companycat> findAll() {
-        List<Companycat> ret = new ArrayList();
-        ret = this.ccr.findAll();
+    public List<Receipt> findAll() {
+        List<Receipt> ret = new ArrayList();
+        ret = this.cur.findAll();
         return ret;
     }
 
     @Override
-    public boolean deleteCompanyCat(Companycat comc) {
+    public boolean deleteReceipt(Receipt cus) {
         try {
-            this.ccr.delete(comc);
+            this.cur.delete(cus);
         } catch (Exception ex) {
             Logger.getLogger(this.getClass()).error(ex.getMessage());
             return false;
@@ -36,15 +36,15 @@ public class CompanyCatServiceImpl implements CompanyCatService {
     }
 
     @Override
-    public Companycat updateCompanyCat(Companycat comc) {
-        Companycat uach = this.ccr.save(comc);
+    public Receipt updateReceipt(Receipt cus) {
+        Receipt uach = this.cur.save(cus);
         return uach;
     }
 
     @Override
-    public Companycat findCompanyCat(Companycat comc) {
-        if (comc.getCatID() != null && !comc.getCatID().equals("")) {
-            return this.ccr.findOne(comc.getCatID());
+    public Receipt findReceipt(Receipt cus) {
+        if (cus.getReceiptId() != null && !cus.getReceiptId().equals("")) {
+            return this.cur.findOne(cus.getReceiptId());
         }else{
             throw new RuntimeException("Tried to update with a null primary key");
         }        

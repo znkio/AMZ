@@ -7,13 +7,12 @@ package com.io.znk.ctalin.model.jpa;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,21 +24,19 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author gmotux
  */
 @Entity
-@Table(catalog = "loukia", schema = "")
+@Table(name = "customer")
 @NamedQueries({
     @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c")})
 public class Customer implements Serializable {
+
     private static final Long serialVersionUID = 1L;
     @Id
-    @GenericGenerator(name = "generator", strategy = "uuid.hex")
-    @GeneratedValue(generator = "generator")
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 36)
@@ -66,7 +63,7 @@ public class Customer implements Serializable {
     private String lastKnownLoc;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "isMale", columnDefinition = "BIT", length = 1)
+    @Column(name = "isMale", columnDefinition = "bit", length = 1)
     private Boolean isMale;
     @Basic(optional = false)
     @NotNull
@@ -158,7 +155,6 @@ public class Customer implements Serializable {
         this.dob = dob;
     }
 
-
     public City getCityID() {
         return cityID;
     }
@@ -191,5 +187,5 @@ public class Customer implements Serializable {
     public String toString() {
         return "com.io.znk.ctalin.model.jpa.Customer[ customerId=" + customerId + " ]";
     }
-    
+
 }
