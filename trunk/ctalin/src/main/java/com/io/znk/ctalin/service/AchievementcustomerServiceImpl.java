@@ -1,6 +1,7 @@
 package com.io.znk.ctalin.service;
 
 import com.io.znk.ctalin.model.jpa.Achievementcustomer;
+import com.io.znk.ctalin.model.jpa.Customer;
 import com.io.znk.ctalin.repository.jpa.AchievementcustomerRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,11 @@ public class AchievementcustomerServiceImpl implements AchievementcustomerServic
         }else{
             throw new RuntimeException("Tried to update with a null primary key");
         }        
+    }
+
+    @Override
+    public List<Achievementcustomer> findByCustomerID(Customer customerID) {
+        return this.ar.findByCustomerID(customerID);
     }
 
 }
