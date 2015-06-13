@@ -1,17 +1,17 @@
 package com.io.znk.ctalin.service;
 
-import com.io.znk.ctalin.model.jpa.RewardReceived;
+import com.io.znk.ctalin.model.jpa.Rewardreceived;
 import java.util.List;
 
 
 public interface RewardReceivedService {
 
-	List<RewardReceived> findAll();
+	List<Rewardreceived> findAll();
         
-        boolean deleteRewardReceived(RewardReceived rere);
+        boolean deleteRewardReceived(Rewardreceived rere);
         
-        RewardReceived updateRewardReceived(RewardReceived rere);
+        Rewardreceived updateRewardReceived(Rewardreceived rere);
         
-        RewardReceived findRewardReceived(RewardReceived rere);
+        Rewardreceived findRewardReceived(Rewardreceived rere);
         
 }

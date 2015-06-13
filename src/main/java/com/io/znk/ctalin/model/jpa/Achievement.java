@@ -6,30 +6,31 @@
 package com.io.znk.ctalin.model.jpa;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author gmotux
  */
 @Entity
-@Table(catalog = "loukia", schema = "")
+@Table(name = "achievement")
 @NamedQueries({
     @NamedQuery(name = "Achievement.findAll", query = "SELECT a FROM Achievement a")})
 public class Achievement implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @GenericGenerator(name = "generator", strategy = "uuid.hex")
-    @GeneratedValue(generator = "generator")
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 36)
@@ -93,7 +94,7 @@ public class Achievement implements Serializable {
 
     @Override
     public int hashCode() {
-        Integer hash = 0;
+        int hash = 0;
         hash += (achievementID != null ? achievementID.hashCode() : 0);
         return hash;
     }
@@ -115,5 +116,5 @@ public class Achievement implements Serializable {
     public String toString() {
         return "com.io.znk.ctalin.model.jpa.Achievement[ achievementID=" + achievementID + " ]";
     }
-    
+
 }

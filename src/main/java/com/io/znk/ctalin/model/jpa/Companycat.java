@@ -24,40 +24,40 @@ import javax.validation.constraints.Size;
  * @author gmotux
  */
 @Entity
-@Table(name = "nomos")
+@Table(name = "companycat")
 @NamedQueries({
-    @NamedQuery(name = "Nomos.findAll", query = "SELECT n FROM Nomos n")})
-public class Nomos implements Serializable {
+    @NamedQuery(name = "Companycat.findAll", query = "SELECT c FROM Companycat c")})
+public class Companycat implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 36)
-    private String nomosID;
+    private String catID;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 45)
     private String description;
 
-    public Nomos() {
+    public Companycat() {
     }
 
-    public Nomos(String nomosID) {
-        this.nomosID = nomosID;
+    public Companycat(String catID) {
+        this.catID = catID;
     }
 
-    public Nomos(String nomosID, String description) {
-        this.nomosID = nomosID;
+    public Companycat(String catID, String description) {
+        this.catID = catID;
         this.description = description;
     }
 
-    public String getNomosID() {
-        return nomosID;
+    public String getCatID() {
+        return catID;
     }
 
-    public void setNomosID(String nomosID) {
-        this.nomosID = nomosID;
+    public void setCatID(String catID) {
+        this.catID = catID;
     }
 
     public String getDescription() {
@@ -71,18 +71,18 @@ public class Nomos implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (nomosID != null ? nomosID.hashCode() : 0);
+        hash += (catID != null ? catID.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Nomos)) {
+        if (!(object instanceof Companycat)) {
             return false;
         }
-        Nomos other = (Nomos) object;
-        if ((this.nomosID == null && other.nomosID != null) || (this.nomosID != null && !this.nomosID.equals(other.nomosID))) {
+        Companycat other = (Companycat) object;
+        if ((this.catID == null && other.catID != null) || (this.catID != null && !this.catID.equals(other.catID))) {
             return false;
         }
         return true;
@@ -90,7 +90,7 @@ public class Nomos implements Serializable {
 
     @Override
     public String toString() {
-        return "com.io.znk.ctalin.model.jpa.Nomos[ nomosID=" + nomosID + " ]";
+        return "com.io.znk.ctalin.model.jpa.Companycat[ catID=" + catID + " ]";
     }
 
 }

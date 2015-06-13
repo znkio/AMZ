@@ -1,6 +1,6 @@
 package com.io.znk.ctalin.service;
 
-import com.io.znk.ctalin.model.jpa.RewardCrit;
+import com.io.znk.ctalin.model.jpa.Rewardcrit;
 import com.io.znk.ctalin.repository.jpa.RewardCritRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +18,14 @@ public class RewardCritServiceImpl implements RewardCritService {
     RewardCritRepository recrr;
 
     @Override
-    public List<RewardCrit> findAll() {
-        List<RewardCrit> ret = new ArrayList();
+    public List<Rewardcrit> findAll() {
+        List<Rewardcrit> ret = new ArrayList();
         ret = this.recrr.findAll();
         return ret;
     }
 
     @Override
-    public boolean deleteRewardCrit(RewardCrit recr) {
+    public boolean deleteRewardCrit(Rewardcrit recr) {
         try {
             this.recrr.delete(recr);
         } catch (Exception ex) {
@@ -36,13 +36,13 @@ public class RewardCritServiceImpl implements RewardCritService {
     }
 
     @Override
-    public RewardCrit updateRewardCrit(RewardCrit recr) {
-        RewardCrit urecr = this.recrr.save(recr);
+    public Rewardcrit updateRewardCrit(Rewardcrit recr) {
+        Rewardcrit urecr = this.recrr.save(recr);
         return urecr;
     }
 
     @Override
-    public RewardCrit findRewardCrit(RewardCrit recr) {
+    public Rewardcrit findRewardCrit(Rewardcrit recr) {
         if (recr.getRewardCritID() != null && !recr.getRewardCritID().equals("")) {
             return this.recrr.findOne(recr.getRewardCritID());
         }else{

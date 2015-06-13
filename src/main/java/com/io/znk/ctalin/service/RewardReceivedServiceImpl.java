@@ -1,6 +1,6 @@
 package com.io.znk.ctalin.service;
 
-import com.io.znk.ctalin.model.jpa.RewardReceived;
+import com.io.znk.ctalin.model.jpa.Rewardreceived;
 import com.io.znk.ctalin.repository.jpa.RewardReceivedRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,14 +18,14 @@ public class RewardReceivedServiceImpl implements RewardReceivedService {
     RewardReceivedRepository rerr;
 
     @Override
-    public List<RewardReceived> findAll() {
-        List<RewardReceived> ret = new ArrayList();
+    public List<Rewardreceived> findAll() {
+        List<Rewardreceived> ret = new ArrayList();
         ret = this.rerr.findAll();
         return ret;
     }
 
     @Override
-    public boolean deleteRewardReceived(RewardReceived rere) {
+    public boolean deleteRewardReceived(Rewardreceived rere) {
         try {
             this.rerr.delete(rere);
         } catch (Exception ex) {
@@ -36,13 +36,13 @@ public class RewardReceivedServiceImpl implements RewardReceivedService {
     }
 
     @Override
-    public RewardReceived updateRewardReceived(RewardReceived rere) {
-        RewardReceived urere = this.rerr.save(rere);
+    public Rewardreceived updateRewardReceived(Rewardreceived rere) {
+        Rewardreceived urere = this.rerr.save(rere);
         return urere;
     }
 
     @Override
-    public RewardReceived findRewardReceived(RewardReceived rere) {
+    public Rewardreceived findRewardReceived(Rewardreceived rere) {
         if (rere.getRewardReceivedID() != null && !rere.getRewardReceivedID().equals("")) {
             return this.rerr.findOne(rere.getRewardReceivedID());
         }else{

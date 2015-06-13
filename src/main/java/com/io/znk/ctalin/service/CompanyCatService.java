@@ -1,17 +1,17 @@
 package com.io.znk.ctalin.service;
 
-import com.io.znk.ctalin.model.jpa.CompanyCat;
+import com.io.znk.ctalin.model.jpa.Companycat;
 import java.util.List;
 
 
 public interface CompanyCatService {
 
-	List<CompanyCat> findAll();
+	List<Companycat> findAll();
         
-        boolean deleteCompanyCat(CompanyCat comc);
+        boolean deleteCompanyCat(Companycat comc);
         
-        CompanyCat updateCompanyCat(CompanyCat comc);
+        Companycat updateCompanyCat(Companycat comc);
         
-        CompanyCat findCompanyCat(CompanyCat comc);
+        Companycat findCompanyCat(Companycat comc);
         
 }
