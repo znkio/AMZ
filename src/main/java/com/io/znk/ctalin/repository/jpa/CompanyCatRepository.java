@@ -5,14 +5,12 @@
  */
 package com.io.znk.ctalin.repository.jpa;
 
-import com.io.znk.ctalin.model.jpa.ReceiptData;
+import com.io.znk.ctalin.model.jpa.CompanyCat;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author adamopoa
- */
-public interface ReceiptDataRepository   extends JpaRepository<ReceiptData, Long>, JpaSpecificationExecutor<ReceiptData>{
-    
+
+@Repository
+public interface CompanyCatRepository extends JpaRepository<CompanyCat, String> {
+
 }

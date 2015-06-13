@@ -3,17 +3,19 @@
     <excludes>
         <pattern>/json/*</pattern>
         <pattern>/txt/*</pattern>
-      </excludes>
+        
+    </excludes>
     <decorator name="master" page="master.jsp">
         <pattern>/*</pattern>
     </decorator>
     <decorator name="secured" page="master.jsp">
-       <pattern>/secured*</pattern>    
+        <pattern>/secured*</pattern>    
     </decorator>
-     <decorator name="nodec" page="nodec.jsp">
+    <decorator name="nodec" page="nodec.jsp">
         <pattern>/no-tpl/*</pattern>
         <pattern>/reload</pattern>
         <pattern>/alert</pattern>
+        <pattern>/mobile/*</pattern>
     </decorator>
     
 </decorators>

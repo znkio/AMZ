@@ -1,69 +1,90 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.io.znk.ctalin.model.jpa;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
+import java.util.Set;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.annotations.GenericGenerator;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-//import javax.persistence.Lob;
-
-@Table(name = "company")
+/**
+ *
+ * @author gmotux
+ */
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Table(catalog = "loukia", schema = "")
+@NamedQueries({
+    @NamedQuery(name = "Company.findAll", query = "SELECT c FROM Company c")})
 public class Company implements Serializable {
-    private static final long serialVersionUID = 1085548653431275261L;
+    private static final Long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
-    private Long companyId;
-
+    @Basic(optional = false)
+    @GenericGenerator(name = "generator", strategy = "uuid.hex")
+    @GeneratedValue(generator = "generator")
     @NotNull
-    @Column(unique = true)
-    private String title;
-
-    @Column
-    private String longitude;
-
-    @Column
-    private String latitude;
-
-    @Column
+    @Size(min = 1, max = 36)
+    private String companyId;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
     private String address;
-
-    @Column
+    @Basic(optional = false)
+    @NotNull
     private Long companyAFM;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    private String latitude;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    private String longitude;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    private String title;
+    @JoinColumn(name = "catID", referencedColumnName = "catID")
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private CompanyCat catID;
 
     public Company() {
     }
-    public Company(Long companyId, String title, String longitude, String latitude, String address, Long companyAFM) {
+
+    public Company(String companyId) {
         this.companyId = companyId;
-        this.title = title;
-        this.longitude = longitude;
-        this.latitude = latitude;
+    }
+
+    public Company(String companyId, String address, Long companyAFM, String latitude, String longitude, String title) {
+        this.companyId = companyId;
         this.address = address;
         this.companyAFM = companyAFM;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
         this.latitude = latitude;
+        this.longitude = longitude;
+        this.title = title;
+    }
+
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     public String getAddress() {
@@ -82,29 +103,61 @@ public class Company implements Serializable {
         this.companyAFM = companyAFM;
     }
 
-    
-
-    public Long getCompanyId() {
-            return companyId;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setCompanyId(Long companyId) {
-            this.companyId = companyId;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public String getTitle() {
-            return title;
+        return title;
     }
 
     public void setTitle(String title) {
-            this.title = title;
+        this.title = title;
+    }
+
+    public CompanyCat getCatID() {
+        return catID;
+    }
+
+    public void setCatID(CompanyCat catID) {
+        this.catID = catID;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (companyId != null ? companyId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Company)) {
+            return false;
+        }
+        Company other = (Company) object;
+        if ((this.companyId == null && other.companyId != null) || (this.companyId != null && !this.companyId.equals(other.companyId))) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "Company{" + "companyId=" + companyId + ", title=" + title + ", longitude=" + longitude + ", latitude=" + latitude + ", address=" + address + ", companyAFM=" + companyAFM + '}';
+        return "com.io.znk.ctalin.model.jpa.Company[ companyId=" + companyId + " ]";
     }
-
-	
-
+    
 }
