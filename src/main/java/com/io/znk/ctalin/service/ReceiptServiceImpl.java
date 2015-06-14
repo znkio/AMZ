@@ -188,7 +188,7 @@ public class ReceiptServiceImpl implements ReceiptService {
     }
 
     @Async
-    private void sendPushTelerik(String message, String telid) {
+    public void sendPushTelerik(String message, String telid) {
         try {
 
             URI uri = new URI("http", "//api.everlive.com/v1/" + telid + "/Push/Notifications", null);

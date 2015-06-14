@@ -31,8 +31,7 @@
         <p>GMOTUX.</p>
 
         <h4>Ανταμοιβές</h4>
-        <p>Maecenas sed diam eget risus varius blandit sit amet non
-            magna.</p>
+        <p>Areti, Alexius, Alexander, Thanos</p>
     </div>
 </div>
 <div class="row">

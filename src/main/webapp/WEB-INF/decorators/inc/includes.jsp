@@ -44,6 +44,8 @@
 <![endif]-->
 
 <script src="<c:url value='/resources/assets/js/modernizr.js' />"></script>
+<script src="<c:url value='/resources/assets/js/handlebars.js' />"></script>
+
 	
 
 
