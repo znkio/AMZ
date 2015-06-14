@@ -3,7 +3,7 @@
 <%@ page session="true" %>
 
 
-<head><title>Σχετικά</title></head>
+<head><title>Προφίλ Επιχείρησης</title></head>
 
 <div class="row">
     <div class="col-md-12">
@@ -23,12 +23,12 @@
     <div class="col-md-4 ">
 
         <img src="<c:url value='/resources/assets/img/MyBusiness.jpg' />"</div>
-    </div>
-    <div class="col-md-4 counterbadge">
-        <h2 >1000 Check In!</h2>
+</div>
+<div class="col-md-4 counterbadge">
+    <h2 >1000 Check In!</h2>
 
 
-    </div>
+</div>
 </div>
 
 <div class="row">
@@ -42,18 +42,18 @@
         <h4>Τοποθεσία</h4>
         <img src="<c:url value='/resources/assets/img/samplemap.png' />"</div>
 
-        
-    <div class="col-md-4">
-        <h4>Development Team</h4>
-        <p>AMZ</p>
+</div>
+<div class="col-md-4">
+    <h4>Βρείτε μας στο Facebook</h4>
+    <br>
 
-        <h4>Lead Programmmer</h4>
-        <p>GMOTUX.</p>
+    <h4>Βρείτε μας στο Foursquare</h4>
+    <br>
 
-        <h4>Minions</h4>
-        <p>Maecenas sed diam eget risus varius blandit sit amet non
-            magna.</p>
-    </div>
+    <h4>Επικοινωνία</h4>
+    <p>210 616 2254</p>
+    <p>myBusiness@nobusiness.nope</p>
+</div>
 </div>
 
 <script type="text/javascript">
