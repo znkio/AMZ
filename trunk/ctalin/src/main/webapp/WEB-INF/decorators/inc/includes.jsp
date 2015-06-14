@@ -22,16 +22,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="resources/assets/ico/favicon.ico">
+<link rel="shortcut icon" href="<c:url value='/resources/assets/ico/favicon.ico' />">
 
 <title>SOLID - Bootstrap 3 Theme</title>
 
 <!-- Bootstrap core CSS -->
-<link href="resources/assets/css/bootstrap.css" rel="stylesheet">
+<link href="<c:url value='/resources/assets/css/bootstrap.css' />" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="resources/assets/css/style.css" rel="stylesheet">
-<link href="resources/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="<c:url value='/resources/assets/css/style.css' />" rel="stylesheet">
+<link href="<c:url value='/resources/assets/css/font-awesome.min.css' />" rel="stylesheet">
 
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -43,7 +43,7 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<script src="resources/assets/js/modernizr.js"></script>
+<script src="<c:url value='/resources/assets/js/modernizr.js' />"></script>
 	
 
 
