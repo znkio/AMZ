@@ -91,4 +91,23 @@ public class HomeController {
 		model.addAttribute("out",formattedDate);
 		return "companyprofile";
 	}
+        
+        @RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "register";
+	}
+        @RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "login";
+	}
 }
