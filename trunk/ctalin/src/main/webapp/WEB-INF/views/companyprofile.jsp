@@ -36,7 +36,7 @@
     <h2>Επωνυμία Επιχείρησης</h2>
     <br>
     <div>
-        <img src=""
+                     <img src="../../resources/assets/img/samplemap.png" alt=""/>
     </div>
     
 </div>
