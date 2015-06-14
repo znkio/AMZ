@@ -13,5 +13,6 @@
 	
 	
  	<import resource="db-config.xml"/> 
-	
+	<import resource="security-config.xml"/>
+
 </beans>
