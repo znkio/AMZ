@@ -30,13 +30,13 @@
 	 	<div class="container">
  			<div class="row centered">
  				<div class="col-md-6">
- 					<i class="fa fa-heart-o"></i>
+ 					<i class="fa fa-qrcode"></i>
  					<h4>Νέα απόδειξη</h4>
  					<p>Ποτέ δεν ήταν ευκολότερο να καταχωρήσετε τις αποδείξεις σας</p>
  					<p><br/><a href="closebr.html#qrcode" class="btn btn-theme">Σκανάρισμα</a></p>
  				</div>
  				<div class="col-md-6">
- 					<i class="fa fa-flask"></i>
+ 					<i class="fa fa-gift"></i>
  					<h4>Προσφορές</h4>
  					<p>Βρείτε τις προσφoρές από επιχειρήσεις κοντά σας</p>
  					<p><br/><a href="#" class="btn btn-theme">Περισσότερα</a></p>
