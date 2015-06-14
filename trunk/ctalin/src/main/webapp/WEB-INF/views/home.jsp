@@ -14,7 +14,7 @@
                             		<img src="resources/assets/img/amz7.gif" class="img-responsive">
 				</div>	
                                 <div   class="col-lg-8 col-lg-offset-2">
-					<h3>συμμετέχω,αποδίδω,αμόιβομαι</h3>
+					<h3>Συμμετέχω|Αποδίδω|Αμόιβομαι</h3>
 					<h1>Εφαρμογή Ηλεκτρονική απόδειξης και ανταμοιβής</h1>
 					<h5>για να είμαστε nTax(i)!</h5>
 				</div>
