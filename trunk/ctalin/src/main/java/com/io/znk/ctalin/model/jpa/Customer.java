@@ -82,16 +82,6 @@ public class Customer implements Serializable {
     @Size(min = 1, max = 300)
     private String fbid;
 
-    @Size(min = 1, max = 2000)
-    private String qrstring;
-
-    public String getQrstring() {
-        return qrstring;
-    }
-
-    public void setQrstring(String qrstring) {
-        this.qrstring = qrstring;
-    }
 
     public String getFsid() {
         return fsid;
