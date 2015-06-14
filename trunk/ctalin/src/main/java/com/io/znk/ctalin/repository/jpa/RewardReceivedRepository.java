@@ -15,5 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RewardReceivedRepository extends JpaRepository<Rewardreceived, String> {
 
+    List<Rewardreceived> findByCustomerID(Customer customerID);
+
     List<Rewardreceived> findByRewardIDAndCustomerID(Rewards rewardID, Customer customerID);
 }

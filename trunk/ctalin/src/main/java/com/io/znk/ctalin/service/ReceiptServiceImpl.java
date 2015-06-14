@@ -94,7 +94,15 @@ public class ReceiptServiceImpl implements ReceiptService {
 
             Company co = receipt.getCompanyID();
             if (co == null) {
-                return null;
+                if (receipt.getReceiptId() == null || receipt.getReceiptId() == "") {
+                    return null;
+                }
+                Receipt tempreceipt = this.cur.findOne(receipt.getReceiptId());
+                if(tempreceipt!=null){
+                    tempreceipt.setCustomerID(receipt.getCustomerID());
+                    this.cur.save(tempreceipt);
+                    return tempreceipt;
+                }
             } else {
 
                 //search if company is registered.By AFM.the only safe choice
@@ -140,10 +148,12 @@ public class ReceiptServiceImpl implements ReceiptService {
                 return receipt;
             }
         } else if (receipt.getCustomerID() == null && receipt.getCompanyID() != null && receipt.getCompanyID().getCompanyId() != null) {
+            receipt = this.cur.save(receipt);
             String qrstring = "";
-            qrstring = "receiptId=" + receipt.getReceiptId() + "&receiptNumber=" + receipt.getReceiptNumber() + "&totalAmount=" + receipt.getTotalAmount() + "&transactionDate=" + receipt.getTransactionDate() + "&vatAmount=" + receipt.getVatAmount() + "&tamiaki=" + receipt.getTamiaki();
+            qrstring = "receiptId=" + receipt.getReceiptId() + "&receiptNumber=" + receipt.getReceiptNumber() + "&totalAmount=" + receipt.getTotalAmount() + "&transactionDate=" + receipt.getTransactionDate().getTime() + "&vatAmount=" + receipt.getVatAmount() + "&tamiaki=" + receipt.getTamiaki();
             receipt.setQrstring(qrstring);
-            return this.cur.save(receipt);
+            receipt = this.cur.save(receipt);
+            return receipt;
         }
         return null;
     }

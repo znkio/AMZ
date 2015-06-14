@@ -1,5 +1,6 @@
 package com.io.znk.ctalin.web.api;
 
+import com.io.znk.ctalin.model.jpa.Customer;
 import com.io.znk.ctalin.model.jpa.Rewards;
 import com.io.znk.ctalin.service.RewardsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,13 +36,18 @@ public class RewardsController {
         return new ResponseEntity(this.rs.updateRewards(rwd), HttpStatus.OK);
     }
 
-    @RequestMapping(value="/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity delReward(@PathVariable String id) {
-        if(id==null||id.equals("")){
-            return new ResponseEntity("Cannot delete with empty id.",HttpStatus.BAD_REQUEST);
+        if (id == null || id.equals("")) {
+            return new ResponseEntity("Cannot delete with empty id.", HttpStatus.BAD_REQUEST);
         }
         Rewards rwd = new Rewards(id);
         return new ResponseEntity(this.rs.deleteRewards(rwd), HttpStatus.OK);
     }
-    
+
+    @RequestMapping(value = "/{customer}", method = RequestMethod.DELETE)
+    public ResponseEntity rewpercust(@PathVariable String customer) {
+        Customer cust=new Customer(customer);
+        return new ResponseEntity(this.rs.findByCustomer(cust),HttpStatus.OK);
+    }
 }

@@ -2,6 +2,7 @@ package com.io.znk.ctalin.web.api;
 
 import com.io.znk.ctalin.model.jpa.Achievement;
 import com.io.znk.ctalin.model.jpa.Achievementcustomer;
+import com.io.znk.ctalin.model.jpa.Company;
 import com.io.znk.ctalin.model.jpa.Customer;
 import com.io.znk.ctalin.model.jpa.Receipt;
 import com.io.znk.ctalin.service.AchievementService;
@@ -49,5 +50,16 @@ public class ReceiptsController {
         Customer acust = new Customer(customerId);
         receipt.setCustomerID(acust);
         return new ResponseEntity(this.rs.updateReceipt(receipt), HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/company/{companyId}", method = RequestMethod.PUT)
+    public ResponseEntity<Receipt> putcomachs(@PathVariable String companyId, @RequestBody Receipt receipt) {
+        if(companyId==null || companyId==""){
+            return new ResponseEntity("you cannot register without a valid customerId", HttpStatus.ALREADY_REPORTED);
+        }
+        Company acust = new Company(companyId);
+        receipt.setCompanyID(acust);
+        receipt.setCustomerID(null);
+        return new ResponseEntity(this.rs.createReceipt(receipt), HttpStatus.OK);
     }
 }

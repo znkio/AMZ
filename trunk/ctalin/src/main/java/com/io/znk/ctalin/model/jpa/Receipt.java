@@ -5,6 +5,7 @@
  */
 package com.io.znk.ctalin.model.jpa;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
