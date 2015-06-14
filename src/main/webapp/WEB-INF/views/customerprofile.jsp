@@ -44,7 +44,7 @@
     <div class="col-md-4">
         <br>
         <h4>Κοντά σε Εμένα</h4>
-        <img src="<c:url value='/resources/assets/img/epixiriseis.png' />"</div>
+        <img src="<c:url value='/resources/assets/img/epix.png' />"</div>
     </div>
 </div>
 
