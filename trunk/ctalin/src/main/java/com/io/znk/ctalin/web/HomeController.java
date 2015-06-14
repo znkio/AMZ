@@ -127,4 +127,13 @@ public class HomeController {
         return "dataentry";
     }
     
+    @RequestMapping(value = "/createoffer", method = RequestMethod.GET)
+    public String createoffer(Locale locale, Model model) {
+        logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+        String formattedDate = dateFormat.format(date);
+        model.addAttribute("out", formattedDate);
+        return "createoffer";
+    }
 }
