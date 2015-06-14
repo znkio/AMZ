@@ -60,6 +60,17 @@ public class Receipt implements Serializable {
     @ManyToOne(optional = true, fetch = FetchType.EAGER)
     private Customer customerID;
 
+    @Size(min = 1, max = 2000)
+    private String qrstring;
+
+    public String getQrstring() {
+        return qrstring;
+    }
+
+    public void setQrstring(String qrstring) {
+        this.qrstring = qrstring;
+    }
+
     public Receipt() {
     }
 
