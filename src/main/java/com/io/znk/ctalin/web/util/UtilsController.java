@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -34,8 +35,8 @@ public class UtilsController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ResponseEntity<byte[]> getachs(HttpServletRequest request) throws IOException {
         String qstring = request.getQueryString();
-        String myCodeText = qstring;
-        String filePath = "/QR.png";
+        String myCodeText = URLDecoder.decode(qstring,"UTF-8");
+        String filePath = "C:\\Users\\gmotux\\Desktop\\3rd\\zenika_rouf\\QR.png";
         int size = 300;
         String fileType = "png";
         File myFile = new File(filePath);
