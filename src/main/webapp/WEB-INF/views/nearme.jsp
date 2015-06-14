@@ -22,10 +22,10 @@
 		});
 
  		var WindCollection=[
- 							 {name: 'Place 1', lat: 37.55,  lng:-90 , wind_speed:50, direction:'NW', temperature:'60'},
- 							 {name: 'Place 2', lat: 36.15,  lng:-94 , wind_speed:45, direction:'N', temperature:'62'},
- 							 {name: 'Place 3', lat: 36.12,  lng:-89 , wind_speed:55, direction:'SE', temperature:'59'}
- 							];
+                    {name: 'Place 1', lat: 37.55,  lng:-90 , wind_speed:50, direction:'NW', temperature:'60'},
+ 		    {name: 'Place 2', lat: 36.15,  lng:-94 , wind_speed:45, direction:'N', temperature:'62'},
+ 		    {name: 'Place 3', lat: 36.12,  lng:-89 , wind_speed:55, direction:'SE', temperature:'59'}
+ 		];
 
  		WindCollection.forEach(function(windplace) {
  			var marker=new google.maps.Marker({position:{lat:windplace.lat, lng:windplace.lng}, clickable:true, map:map, animation:google.maps.Animation.DROP });
