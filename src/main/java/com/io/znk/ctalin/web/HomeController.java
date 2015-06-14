@@ -117,7 +117,7 @@ public class HomeController {
         return "login";
     }
     
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/dataentry", method = RequestMethod.GET)
     public String dataentry(Locale locale, Model model) {
         logger.info("Welcome to CTALIN! The client locale is {}.", locale);
         Date date = new Date();
