@@ -72,4 +72,23 @@ public class HomeController {
 		return "reports";
 	}
 	
+         @RequestMapping(value = "/reports", method = RequestMethod.GET)
+	public String customer(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "customerprofile";
+	}
+        
+         @RequestMapping(value = "/reports", method = RequestMethod.GET)
+	public String company(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "companyprofile";
+	}
 }
