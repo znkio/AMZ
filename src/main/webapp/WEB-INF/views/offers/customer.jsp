@@ -89,8 +89,8 @@
     <div class="col-lg-8">{{companyID.catID.description}}
     <! -- Blog Post 1 -->
     <a href=""><h3 class="ctitle">{{companyID.title}}</h3></a>
-    <p><csmall>ΑΦΜ {{companyID.companyAFM}}</csmall> | <csmall2>{{companyID.address}}</csmall2></p>
-    <p><strong>ΠΟΣΟ {{totalAmount}}</strong> </p>
+    <p><csmall2>{{companyID.address}}</csmall2></p>
+    <p><strong>{{description}}</strong> </p>
 
     <div class="hline"></div>
 
