@@ -8,11 +8,13 @@
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
 		<form class="form-signin" role="form" action="<c:url value='/j_spring_security_check' />" method="post">
-			<h2 class="form-signin-heading">Εγγραφή χρήστη</h2>
-			<input name="j_username" type="text" class="form-control" placeholder="ΑΦΜ Επιχείρησης" required autofocus>
-			<input name="j_password" type="password" class="form-control" placeholder="Ποσό απόδειξης" required>
-                        <input name="j_password" type="afm" class="form-control" placeholder="Ποσό ΦΠΑ" required>
-                        <input name="j_username" type="text" class="form-control" placeholder="Ταμειακή" required autofocus>
+			<h2 class="form-signin-heading">Καταχώρηση απόδειξης</h2>
+			<input name="companyAFM" type="text" class="form-control" placeholder="ΑΦΜ Επιχείρησης" required autofocus>
+			<input name="amount" type="password" class="form-control" placeholder="Ποσό απόδειξης" required>
+                        <input name="vat" type="afm" class="form-control" placeholder="Ποσό ΦΠΑ" required>
+                        <input name="trdate" type="afm" class="form-control" placeholder="Ημερομηνία - Ώρα" required>
+                        <input name="tamiaki" type="text" class="form-control" placeholder="Ταμειακή">
+                        <input name="customerAFM" type="hidden" class="form-control" value="3e6ee681-11da-11e5-8b86-00155daf5915">
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Αποστολή</button>
 
 		</form>
