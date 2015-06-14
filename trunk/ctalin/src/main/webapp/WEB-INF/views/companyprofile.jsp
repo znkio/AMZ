@@ -12,33 +12,48 @@
             <br>
             <h2>Προφίλ Επιχείρησης</h2>
 
-            <a id="signUp" class="btn btn-large btn-success text-center"  href="#">Εγγραφείτε Σήμερα</a>
+
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-1 ">
+
+    </div>
+    <div class="col-md-4 ">
+
+        <img src="<c:url value='/resources/assets/img/MyBusiness.jpg' />"</div>
+    </div>
+    <div class="col-md-4 counterbadge">
+        <h2 >1000 Check In!</h2>
+
+
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-1">
 
     </div>
     <div class="col-md-8">
-        <img src="" width="200px" height="200px"
+        <h4>Επωνυμία Επιχείρησης</h4>
+        <br>
 
-             <
-    </div>
+        <h4>Τοποθεσία</h4>
+        <img src="<c:url value='/resources/assets/img/samplemap.png' />"</div>
 
+        
     <div class="col-md-4">
-        <h4>Counter</h4>
+        <h4>Development Team</h4>
+        <p>AMZ</p>
 
+        <h4>Lead Programmmer</h4>
+        <p>GMOTUX.</p>
 
+        <h4>Minions</h4>
+        <p>Maecenas sed diam eget risus varius blandit sit amet non
+            magna.</p>
     </div>
-</div>
-<div class="row">
-    <h2>Επωνυμία Επιχείρησης</h2>
-    <br>
-    <div>
-                     <img src="../../resources/assets/img/samplemap.png" alt=""/>
-    </div>
-    
 </div>
 
 <script type="text/javascript">
