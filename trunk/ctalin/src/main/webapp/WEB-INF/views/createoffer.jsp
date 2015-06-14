@@ -7,11 +7,11 @@
 
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
-        <form class="form-signin" role="form" action="<c:url value='/j_spring_security_check' />" method="post">
+        <form class="form-signin" role="form" action="<c:url value='/createoffer' />" method="post">
             <h2 class="form-signin-heading">Δημιουργία Προσφοράς</h2>
-            <input name="j_recnumb" type="number" class="form-control" placeholder="Αριθ. Αποδείξεων" required autofocus>
-            <input name="j_minposo" type="number" class="form-control" placeholder="Ελάχιστο Ποσό" required>
-            <input name="j_perigrafi" type="text" class="form-control" placeholder="Περιγραφή" required autofocus>
+            <input name="reiceipstno" type="number" class="form-control" placeholder="Αριθ. Αποδείξεων" required autofocus>
+            <input name="minamount" type="number" class="form-control" placeholder="Ελάχιστο Ποσό" required>
+            <input name="descr" type="text" class="form-control" placeholder="Περιγραφή" required autofocus>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Αποστολή</button>
 
         </form>
