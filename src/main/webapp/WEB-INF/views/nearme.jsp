@@ -11,67 +11,66 @@
 	globalOverlay = null,
 	map = null;
 
-	jQuery(document).ready(function() {
-		jQuery('#map-canvas').width(width);
-		jQuery('#map-canvas').height(height);
-	}); 
+ 
 	function initialize() {
  		map = new google.maps.Map(document.getElementById('map-canvas'), {
-			zoom: 6,
-			center: {lat: 37.55, lng: -90.963}
+			zoom: 14,
+			center: {lat: 37.9937679, lng: 23.7271820}
 		});
 
- 		var WindCollection=[
-                    {name: 'Place 1', lat: 37.55,  lng:-90 , wind_speed:50, direction:'NW', temperature:'60'},
- 		    {name: 'Place 2', lat: 36.15,  lng:-94 , wind_speed:45, direction:'N', temperature:'62'},
- 		    {name: 'Place 3', lat: 36.12,  lng:-89 , wind_speed:55, direction:'SE', temperature:'59'}
- 		];
+ 		var WindCollection=[];
 
- 		WindCollection.forEach(function(windplace) {
- 			var marker=new google.maps.Marker({position:{lat:windplace.lat, lng:windplace.lng}, clickable:true, map:map, animation:google.maps.Animation.DROP });
+            $.getJSON( "/ctalin/mobile/api/companies/nearme?lat=37.9870858&lot=23.7285054&radius=0.7", function( companies ) {
+                    
+ 		companies.forEach(function(data) {
+                        var latVal = parseFloat(data[2]);
+                        var lotVal = parseFloat(data[3]);
+ 			var marker= new google.maps.Marker({position:{lat:latVal, lng:lotVal}, clickable:true, map:map, animation:google.maps.Animation.DROP });
  			
 
  			google.maps.event.addListener(marker,'click',function() {
 		 	var infowindow = new google.maps.InfoWindow();
 		 	var infolist=jQuery('<ul></ul>');
-		 	for (attribute in windplace) {
-		 		infolist.append('<li><b>'+attribute+'</b>: '+windplace[attribute]+'</li>');
+		 	for (attribute in data) {
+		 		infolist.append('<li><b>'+attribute+'</b>: '+data[attribute]+'</li>');
 		 	}
 		 	infowindow.setContent('<div class="infowindow">'+infolist.html()+'</div>');
 			infowindow.open(map, marker);
 			map.panTo(marker.getPosition());
 		 	});
  		});
-
-		
-		 
-
-		 
+            });
 	}
-
 	google.maps.event.addDomListener(window, 'load', initialize);
 
 </script>
 </head>
 
+<div class="row"><br></div>
+<div class="row"><br></div>
+<div class="row"><br></div>
 <div class="row">
 	<div class="col-md-12">
-        <h1>Επιχειρήσεις που συμμετέχουν ενεργά και βρίσκονται κοντά μου</h1>
-        <div class=" col-md-6 text-center">
-            <form role="form">
-            <div class="form-group">
-                <label for="sel1">Απόσταση σε χιλιόμετρα</label>
-                <select name="radius" class="form-control" id="sel1">
-                    <option>0.1</option>
-                    <option>0.2</option>
-                    <option>0.3</option>
-                    <option>0.4</option>
-                    <option>0.5</option>
-                </select>
-            </form>
-            </div>
-       
+        <h3>Επιχειρήσεις που συμμετέχουν ενεργά και βρίσκονται κοντά μου</h3>
+        <div class="row">
+                <div class=" col-md-12 text-center">
+                    <form role="form">
+                    <div class="form-group">
+                        <label for="sel1">Απόσταση σε χιλιόμετρα</label>
+                        <select name="radius" class="form-control" id="sel1" onchange="initialize()">
+                            <option>0.1</option>
+                            <option>0.2</option>
+                            <option>0.3</option>
+                            <option>0.4</option>
+                            <option>0.5</option>
+                        </select>
+                    </form>
+                    </div>
+                </div>
         </div>
-       <div id="map-canvas"></div>     
+        <div class=" col-md-12 text-center">
+            <div id="map-canvas"></div>
+        </div>
+        
 	</div>
 </div>
