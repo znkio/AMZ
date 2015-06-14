@@ -29,24 +29,18 @@
 	 <div id="service">
 	 	<div class="container">
  			<div class="row centered">
- 				<div class="col-md-4">
+ 				<div class="col-md-6">
  					<i class="fa fa-heart-o"></i>
  					<h4>Νέα απόδειξη</h4>
  					<p>Ποτέ δεν ήταν ευκολότερο να καταχωρήσετε τις αποδείξεις σας</p>
  					<p><br/><a href="closebr.html#qrcode" class="btn btn-theme">Σκανάρισμα</a></p>
  				</div>
- 				<div class="col-md-4">
+ 				<div class="col-md-6">
  					<i class="fa fa-flask"></i>
  					<h4>Προσφορές</h4>
  					<p>Βρείτε τις προσοφρές από επιχειρήσεις κοντά σας.</p>
  					<p><br/><a href="#" class="btn btn-theme">More Info</a></p>
  				</div>
- 				<div class="col-md-4">
- 					<i class="fa fa-trophy"></i>
- 					<h4>Quality Theme</h4>
- 					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
- 					<p><br/><a href="#" class="btn btn-theme">More Info</a></p>
- 				</div>		 				
 	 		</div>
 	 	</div><! --/container -->
 	 </div><! --/service -->
