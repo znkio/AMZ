@@ -9,8 +9,6 @@
 	<div class="col-md-12">
         <h1>Επιχειρήσεις που συμμετέχουν ενεργά και βρίσκονται κοντά μου</h1>
         <div class=" col-md-12 text-center">
-            <img src="resources/assets/img/epixiriseis.png">
-            
             <form role="form">
             <div class="form-group">
                 <label for="sel1">Απόσταση σε χιλιόμετρα</label>
@@ -23,7 +21,7 @@
                 </select>
             </form>
             </div>
-            
+            <img src="resources/assets/img/epixiriseis.png">            
         </div>
             
 	</div>
