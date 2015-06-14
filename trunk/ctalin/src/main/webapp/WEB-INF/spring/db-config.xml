@@ -17,9 +17,14 @@
 	
     <bean id="mainDatasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://192.168.1.215:3306/loukia" />
+<!--    <property name="jdbcUrl" value="jdbc:mysql://192.168.1.215:3306/loukia" />
         <property name="user" value="root" />
-        <property name="password" value="iuaxhlod" />
+        <property name="password" value="iuaxhlod" /> -->
+        <!--Localhost -->        
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/loukia" />
+        <property name="user" value="root" />
+        <property name="password" value="123456789" /> 
+        
         <property name="minPoolSize" value="10" />
         <property name="maxPoolSize" value="50" />
         <property name="maxStatements" value="25" />
