@@ -9,13 +9,16 @@
 	<div class="col-md-12">
 		
         <h1>AMZ team</h1>
+        
+        <div>
         <p>
-        alexius.diakogiannis@zenika.gr
-        alex.adamopoulos@megatv.com
-        thanos
-        json
-        areti
+            alexius.diakogiannis@zenika.gr</br>
+            alex.adamopoulos@megatv.com</br>
+            thanos</br>
+            json</br>
+            areti</br>
         </p>        
+        </div>
             
 	</div>
 </div>
