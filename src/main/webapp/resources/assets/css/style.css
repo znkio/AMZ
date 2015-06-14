@@ -461,3 +461,8 @@ csmall2 {
 .counterbadge {
     background-image : url("/resources/assets/img/by.png") no-repeat;
 }
+
+#map-canvas{
+    width:100%;
+    height:100%;
+}
