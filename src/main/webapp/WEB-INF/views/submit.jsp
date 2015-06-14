@@ -14,10 +14,10 @@
             receipt[key] = decodeURI(param.split("=")[1]);
         }
         receipt.customerID = {
-            "customerId": "3aea8d5c-11da-11e5-8b86-00155daf5915"
+            "customerId": "4369cefb-11da-11e5-8b86-00155daf5915"
         }
 
-        var custID = "3aea8d5c-11da-11e5-8b86-00155daf5915"
+        var custID = "4369cefb-11da-11e5-8b86-00155daf5915"
         //ajax to mobile/api/receipts/customer/{}
         $.ajax({
             url: "<c:url value="/mobile/api/receipts/customer/"/>" + custID,

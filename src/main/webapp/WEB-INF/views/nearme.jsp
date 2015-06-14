@@ -43,8 +43,7 @@
 
             var latVal = parseFloat("37.9870858");
             var lotVal = parseFloat("23.7285054")
-            );
-                    var marker = new google.maps.Marker({position: {lat: latVal, lng: lotVal}, clickable: true, map: map, animation: google.maps.Animation.DROP});
+            var marker = new google.maps.Marker({position: {lat: latVal, lng: lotVal}, clickable: true, map: map, animation: google.maps.Animation.DROP});
 
 
             google.maps.event.addListener(marker, 'click', function () {

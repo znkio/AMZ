@@ -101,6 +101,7 @@ public class ReceiptServiceImpl implements ReceiptService {
                 if(tempreceipt!=null){
                     tempreceipt.setCustomerID(receipt.getCustomerID());
                     this.cur.save(tempreceipt);
+                    this.triggeredRewards(tempreceipt);
                     return tempreceipt;
                 }
             } else {
