@@ -1,6 +1,9 @@
 package com.io.znk.ctalin.service;
 
+import com.io.znk.ctalin.model.jpa.Customer;
+import com.io.znk.ctalin.model.jpa.Rewardreceived;
 import com.io.znk.ctalin.model.jpa.Rewards;
+import com.io.znk.ctalin.repository.jpa.RewardReceivedRepository;
 import com.io.znk.ctalin.repository.jpa.RewardsRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +19,9 @@ public class RewardsServiceImpl implements RewardsService {
 
     @Autowired
     RewardsRepository rwr;
+
+    @Autowired
+    RewardReceivedRepository receivedRepository;
 
     @Override
     public List<Rewards> findAll() {
@@ -45,9 +51,17 @@ public class RewardsServiceImpl implements RewardsService {
     public Rewards findRewards(Rewards rew) {
         if (rew.getRewardID() != null && !rew.getRewardID().equals("")) {
             return this.rwr.findOne(rew.getRewardID());
-        }else{
+        } else {
             throw new RuntimeException("Tried to update with a null primary key");
-        }        
+        }
     }
 
+    public List<Rewards> findByCustomer(Customer customer) {
+        List<Rewardreceived> rwcl = this.receivedRepository.findByCustomerID(customer);
+        List<Rewards> rwl = new ArrayList();
+        for (Rewardreceived rwc : rwcl) {
+            rwl.add(rwc.getRewardID());
+        }
+        return rwl;
+    }
 }
