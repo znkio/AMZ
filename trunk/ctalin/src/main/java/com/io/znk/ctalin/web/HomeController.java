@@ -30,6 +30,7 @@ public class HomeController {
 		model.addAttribute("out",formattedDate);
 		return "home";
 	}
+
         /*
 
         @RequestMapping(value = "/about", method = RequestMethod.GET)
