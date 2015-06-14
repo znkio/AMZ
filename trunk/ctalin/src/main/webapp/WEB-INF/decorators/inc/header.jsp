@@ -22,13 +22,8 @@
             <li class="active"><a class="navbar-brand" href="<c:url value="/mobile"/>">HOME</a></li>
             <li><a class="navbar-brand" href="<c:url value="/about"/>">ABOUT</a></li>
             <li><a class="navbar-brand" href="<c:url value="/contact"/>">CONTACT</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="<c:url value="/nearme"/>">ΕΠΙΧΕΙΡΗΣΕΙΣ</a></li>
-                <li><a href="<c:url value="/reports"/>">ΑΝΑΦΟΡΕΣ</a></li>
-              </ul>
-            </li>
+            <li><a class="navbar-brand" href="<c:url value="/nearme"/>">ΕΠΙΧΕΙΡΗΣΕΙΣ</a></li>
+            <li><a class="navbar-brand" href="<c:url value="/reports"/>">ΑΝΑΦΟΡΕΣ</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
