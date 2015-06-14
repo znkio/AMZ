@@ -52,15 +52,24 @@ public class HomeController {
 		return "contact";
 	}
 
-        @RequestMapping(value = "/pages", method = RequestMethod.GET)
-	public String pages(Locale locale, Model model) {
+        @RequestMapping(value = "/nearme", method = RequestMethod.GET)
+	public String nearme(Locale locale, Model model) {
 		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("out",formattedDate);
-		return "pages";
+		return "nearme";
 	}
 
+        @RequestMapping(value = "/reports", method = RequestMethod.GET)
+	public String reports(Locale locale, Model model) {
+		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("out",formattedDate);
+		return "reports";
+	}
 	
 }
