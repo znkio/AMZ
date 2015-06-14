@@ -13,7 +13,7 @@
             
             <form role="form">
             <div class="form-group">
-                <label for="sel1">Ακτίνα σε</label>
+                <label for="sel1">Απόσταση σε χιλιόμετρα</label>
                 <select name="radius" class="form-control" id="sel1">
                     <option>0.1</option>
                     <option>0.2</option>
