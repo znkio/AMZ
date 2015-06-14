@@ -10,8 +10,8 @@
         <div class="jumbotron">
             <br>
             <br>
-            <h2>Επωνυμία Επιχείρησης</h2>
-            <p class="lead">Ο έξυπνότερος τρόπος να διαχειρίζεστε τις αποδείξεις σας κερδίζοντας προσφορές!</p>
+            <h2>Προφίλ Επιχείρησης</h2>
+
             <a id="signUp" class="btn btn-large btn-success text-center"  href="#">Εγγραφείτε Σήμερα</a>
         </div>
     </div>
@@ -21,27 +21,22 @@
 
     </div>
     <div class="col-md-8">
-        <h4>Εύκολη καταχώρηση με ένα κλικ!</h4>
-        <p>Καταχωρήστε εύκολα τις αποδείξεις από κάθε αγορά σας απλά με ένα scan.</p>
+        <img src="" width="200px" height="200px"
 
-        <h4>Διατήρηση Αρχείου</h4>
-        <p>Οργανώστε τις αποδείξεις σας και αποκτήστε καλύτερη εικόνα και έλεγχο των αγορών σας.</p>
-
-        <h4>Μοναδικές Προσφορές!</h4>
-        <p>Κάθε συνεργαζόμενη επιχείρηση ανταμοίβει την συμμετοχή σας με κυλιόμενες προσφορές.</p>
+             <
     </div>
 
     <div class="col-md-4">
-        <h4>Development Team</h4>
-        <p>AMZ</p>
+        <h4>Counter</h4>
 
-        <h4>Lead Programmmer</h4>
-        <p>GMOTUX.</p>
 
-        <h4>Minions</h4>
-        <p>Maecenas sed diam eget risus varius blandit sit amet non
-            magna.</p>
     </div>
+</div>
+<div class="row">
+    <h2>Επωνυμία Επιχείρησης</h2>
+    <br>
+    <div>MAP</div>
+    
 </div>
 
 <script type="text/javascript">
