@@ -8,35 +8,31 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="jumbotron">
-			<h1>Super awesome marketing speak!</h1>
-			<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas
-				eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-			<a id="signUp" class="btn btn-large btn-success" href="#">Sign up today</a>
+                    <br>
+                    <br>
+			<h2>Εφαρμογή Ηλεκτρονικής Απόδειξης</h2>
+			<p class="lead">Ο έξυπνότερος τρόπος να διαχειρίζεστε τις αποδείξεις σας κερδίζοντας προσφορές!</p>
+                        <a id="signUp" class="btn btn-large btn-success text-center"  href="#">Εγγραφείτε Σήμερα</a>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-8">
-		<h4>Subheading</h4>
-		<p>Donec id elit non mi porta gravida at eget metus. Maecenas
-			faucibus mollis interdum.</p>
+		<h4>Εύκολη καταχώρηση με ένα κλικ!</h4>
+		<p>Καταχωρήστε εύκολα τις αποδείξεις από κάθε αγορά σας απλά με ένα scan.</p>
 
-		<h4>Subheading</h4>
-		<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-			Cras mattis consectetur purus sit amet fermentum.</p>
+		<h4>Διατήρηση Αρχείου</h4>
+		<p>Οργανώστε τις αποδείξεις σας και αποκτήστε καλύτερη εικόνα και έλεγχο των αγορών σας.</p>
 
-		<h4>Subheading</h4>
-		<p>Maecenas sed diam eget risus varius blandit sit amet non
-			magna.</p>
+		<h4>Μοναδικές Προσφορές!</h4>
+		<p>Κάθε συνεργαζόμενη επιχείρηση ανταμοίβει την συμμετοχή σας με κυλιόμενες προσφορές.</p>
 	</div>
 
 	<div class="col-md-4">
-		<h4>Subheading</h4>
-		<p>Donec id elit non mi porta gravida at eget metus. Maecenas
-			faucibus mollis interdum.</p>
+		<h4>Development Team</h4>
+		<p>AMZ</p>
 
-		<h4>Subheading</h4>
+		<h4>Lead Programmmer</h4>
 		<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 			Cras mattis consectetur purus sit amet fermentum.</p>
 
