@@ -35,7 +35,9 @@
 <div class="row">
     <h2>Επωνυμία Επιχείρησης</h2>
     <br>
-    <div>MAP</div>
+    <div>
+        <img src=""
+    </div>
     
 </div>
 
