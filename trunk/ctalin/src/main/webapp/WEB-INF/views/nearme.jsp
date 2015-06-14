@@ -21,7 +21,7 @@
                 var rad = $( "#rad" ).val();
  		var WindCollection=[];
 
-            $.getJSON( '/ctalin/mobile/api/companies/nearme?lat=37.9870858&lot=23.7285054&radius='+rad, function( companies ) {
+        $.getJSON( "<c:url value='/mobile/api/companies/nearme?lat=37.9870858&lot=23.7285054&radius='/>"+rad, function( companies ) {
                     
  		companies.forEach(function(data) {
                         var latVal = parseFloat(data[2]);
