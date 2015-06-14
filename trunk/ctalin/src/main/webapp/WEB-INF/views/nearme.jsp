@@ -18,9 +18,10 @@
 			center: {lat: 37.9937679, lng: 23.7271820}
 		});
 
+                var rad = $( "#rad" ).val();
  		var WindCollection=[];
 
-            $.getJSON( "/ctalin/mobile/api/companies/nearme?lat=37.9870858&lot=23.7285054&radius=0.7", function( companies ) {
+            $.getJSON( '/ctalin/mobile/api/companies/nearme?lat=37.9870858&lot=23.7285054&radius='+rad, function( companies ) {
                     
  		companies.forEach(function(data) {
                         var latVal = parseFloat(data[2]);
@@ -57,12 +58,12 @@
                     <form role="form">
                     <div class="form-group">
                         <label for="sel1">Απόσταση σε χιλιόμετρα</label>
-                        <select name="radius" class="form-control" id="sel1" onchange="initialize()">
-                            <option>0.1</option>
-                            <option>0.2</option>
-                            <option>0.3</option>
-                            <option>0.4</option>
-                            <option>0.5</option>
+                        <select name="radius" class="form-control" id="rad" onchange="initialize()">
+                            <option value="0.1">0.1km</option>
+                            <option value="0.2">0.2km</option>
+                            <option value="0.3">0.3km</option>
+                            <option value="0.4">0.4km</option>
+                            <option value="0.5">0.5km</option>
                         </select>
                     </form>
                     </div>
