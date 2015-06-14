@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="col-md-12">
         <h1>Επιχειρήσεις που συμμετέχουν ενεργά και βρίσκονται κοντά μου</h1>
-        <div class=" col-md-12 text-center">
+        <div class=" col-md-6 text-center">
             <form role="form">
             <div class="form-group">
                 <label for="sel1">Απόσταση σε χιλιόμετρα</label>
