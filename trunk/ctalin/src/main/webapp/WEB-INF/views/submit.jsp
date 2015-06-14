@@ -3,7 +3,7 @@
 <%@ page session="true" %>
 
 <body>
-    
+    <div id="equalizer"/>
     <script type="text/javascript">
         var qstring = (window.location + "").split("?")[1];
         var receipt = {};
@@ -26,7 +26,7 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
         }).success(function (data, responce) {
-           $('body').append("<h1>Επιτυχής υποβολή της απόδειξής σας</h1>")
+           $('#equalizer').append("<h1>Επιτυχής υποβολή της απόδειξής σας</h1>")
         }).error(function (data, responce)
         {
             alert("problem submiting the receipt.")
