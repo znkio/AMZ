@@ -59,7 +59,6 @@ public class Receipt implements Serializable {
     @JoinColumn(name = "customerID", referencedColumnName = "customerId")
     @ManyToOne(optional = true, fetch = FetchType.EAGER)
     private Customer customerID;
-    @NotNull
     private Integer tamiaki;
     @Size(min = 1, max = 2000)
     private String qrstring;

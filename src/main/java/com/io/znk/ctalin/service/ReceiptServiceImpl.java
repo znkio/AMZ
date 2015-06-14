@@ -3,20 +3,35 @@ package com.io.znk.ctalin.service;
 import com.io.znk.ctalin.model.jpa.Company;
 import com.io.znk.ctalin.model.jpa.Customer;
 import com.io.znk.ctalin.model.jpa.Receipt;
+import com.io.znk.ctalin.model.jpa.Rewardcrit;
+import com.io.znk.ctalin.model.jpa.Rewardreceived;
+import com.io.znk.ctalin.model.jpa.Rewards;
 import com.io.znk.ctalin.repository.jpa.CompanyRepository;
 import com.io.znk.ctalin.repository.jpa.CustomerRepository;
 import com.io.znk.ctalin.repository.jpa.ReceiptRepository;
 import com.io.znk.ctalin.repository.jpa.RewardReceivedRepository;
 import com.io.znk.ctalin.repository.jpa.RewardsRepository;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import org.apache.commons.httpclient.URI;
 import org.jboss.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@EnableScheduling
+@EnableAsync
 @Transactional
 public class ReceiptServiceImpl implements ReceiptService {
 
@@ -30,6 +45,8 @@ public class ReceiptServiceImpl implements ReceiptService {
     CompanyRepository companyRepository;
     @Autowired
     CustomerRepository customerRepository;
+    @Autowired
+    RewardReceivedRepository rewardReceivedRepository;
 
     @Override
     public List<Receipt> findAll() {
@@ -74,13 +91,12 @@ public class ReceiptServiceImpl implements ReceiptService {
     public Receipt createReceipt(Receipt receipt) {
         //check if it was a customer request
         if (receipt.getCustomerID() != null) {
-            if (triggeredRewards()) {
-                //do something with push notifications
-            }
+
             Company co = receipt.getCompanyID();
             if (co == null) {
                 return null;
             } else {
+
                 //search if company is registered.By AFM.the only safe choice
                 Company rco = this.companyRepository.findByCompanyAFM(co.getCompanyAFM());
                 if (rco != null) {
@@ -110,26 +126,83 @@ public class ReceiptServiceImpl implements ReceiptService {
                         }
                         rco = this.companyRepository.save(rco);
                         receipt.setCompanyID(rco);
+                        receipt = this.cur.save(receipt);
+
                     }
                 } else {
                     co.setProvisional(true);
                     co.setVerified(false);
                     co = this.companyRepository.save(co);
                     receipt.setCompanyID(co);
+                    receipt = this.cur.save(receipt);
                 }
-                return this.cur.save(receipt);
+                this.triggeredRewards(receipt);
+                return receipt;
             }
         } else if (receipt.getCustomerID() == null && receipt.getCompanyID() != null && receipt.getCompanyID().getCompanyId() != null) {
-            String qrstring="";
-            qrstring="receiptId="+receipt.getReceiptId()+"&receiptNumber="+receipt.getReceiptNumber()+"&totalAmount="+receipt.getTotalAmount()+"&transactionDate="+receipt.getTransactionDate()+"&vatAmount="+receipt.getVatAmount()+"&tamiaki="+receipt.getTamiaki();
+            String qrstring = "";
+            qrstring = "receiptId=" + receipt.getReceiptId() + "&receiptNumber=" + receipt.getReceiptNumber() + "&totalAmount=" + receipt.getTotalAmount() + "&transactionDate=" + receipt.getTransactionDate() + "&vatAmount=" + receipt.getVatAmount() + "&tamiaki=" + receipt.getTamiaki();
             receipt.setQrstring(qrstring);
             return this.cur.save(receipt);
         }
         return null;
     }
 
-    private boolean triggeredRewards() {
-        //rewards logic here
+    private boolean triggeredRewards(Receipt receipt) {
+        //get total number of receipts per comp per cust
+        List<Receipt> rcl = this.cur.findByCustomerID(receipt.getCustomerID());
+
+        Integer receiptno = rcl.size();
+        Double total = 0.0;
+        for (Receipt rc : rcl) {
+            total += rc.getTotalAmount();
+        }
+        List<Rewards> rwl = this.rewardsRepository.findByCompanyID(receipt.getCompanyID());
+        if (rwl.size() > 0) {
+            for (Rewards rw : rwl) {
+                Rewardcrit rcrit = rw.getRewardCritID();
+                if (this.rewardReceivedRepository.findByRewardIDAndCustomerID(rw, receipt.getCustomerID()).size() > 0) {
+                    continue;
+                }
+                if (rcrit.getAmountMin() <= total || receiptno >= rcrit.getNumReceipts()) {
+                    sendPushTelerik(rw.getDescription(), "34t5TpXF6UZmafEg");
+                    Rewardreceived rwrd = new Rewardreceived();
+                    rwrd.setCustomerID(receipt.getCustomerID());
+                    rwrd.setRewardID(rw);
+                    rwrd.setDateReceived(new Date());
+                    this.rewardReceivedRepository.save(rwrd);
+                }
+            }
+        }
         return false;
+    }
+
+    @Async
+    private void sendPushTelerik(String message, String telid) {
+        try {
+
+            URI uri = new URI("http", "//api.everlive.com/v1/" + telid + "/Push/Notifications", null);
+            URL oracle = new URL(uri.getEscapedURI());
+            HttpURLConnection conn = (HttpURLConnection) oracle.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setDoOutput(true);
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Accept",
+                    "text/html,application/xhtml+xml,application/xml;application/json;q=0.9,image/webp,*/*;q=0.8");
+
+            OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
+            String data = "{\"Message\":\"" + message + "\"}";
+            writer.write(data);
+            writer.flush();
+            String line;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            writer.close();
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
