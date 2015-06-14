@@ -28,21 +28,20 @@
             
 	</div>
     <script>
+        function initialize() {
+            var mapOptions = {
+                zoom: 7,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+            var pos = new google.maps.LatLng(37.89982, 29.509026);
+            var image = '../img/fatsa6s.png';
+            var myLatlng;
+            var marker;
+        #{apController.markers}
 
-[14:49:04] jSon karaoglanis: function initialize() {
-                var mapOptions = {
-                    zoom: 7,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                map = new google.maps.Map(document.getElementById('map-canvas'),
-                        mapOptions);
-                var pos = new google.maps.LatLng(37.89982, 29.509026);
-                var image = '../img/fatsa6s.png';
-                var myLatlng;
-                var marker;
-            #{apController.markers}
-
-                map.setCenter(pos);
+            map.setCenter(pos);
             }
     </script>    
 </div>
