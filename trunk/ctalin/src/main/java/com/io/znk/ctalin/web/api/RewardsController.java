@@ -45,7 +45,7 @@ public class RewardsController {
         return new ResponseEntity(this.rs.deleteRewards(rwd), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{customer}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{customer}", method = RequestMethod.GET)
     public ResponseEntity rewpercust(@PathVariable String customer) {
         Customer cust=new Customer(customer);
         return new ResponseEntity(this.rs.findByCustomer(cust),HttpStatus.OK);
