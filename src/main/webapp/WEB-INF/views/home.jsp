@@ -39,7 +39,7 @@
  					<i class="fa fa-gift"></i>
  					<h4>Προσφορές</h4>
  					<p>Βρείτε τις προσφoρές από επιχειρήσεις κοντά σας</p>
- 					<p><br/><a href="#" class="btn btn-theme">Περισσότερα</a></p>
+ 					<p><br/><a href="<c:url value="/mobile/offers/view/"/>" class="btn btn-theme">Περισσότερα</a></p>
  				</div>
 	 		</div>
 	 	</div><! --/container -->
