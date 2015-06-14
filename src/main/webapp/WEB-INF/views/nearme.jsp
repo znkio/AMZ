@@ -21,7 +21,7 @@
                 </select>
             </form>
             </div>
-            <img src="resources/assets/img/epixiriseis.png">            
+            <img src="/resources/assets/img/epixiriseis.png">            
         </div>
             
 	</div>
