@@ -3,7 +3,9 @@
 <%@ page session="true" %>
 
 
-<head><title>Επιχειρήσεις που συμμετέχουν ενεργά και είναι κοντά μου</title></head>
+<head><title>Επιχειρήσεις που συμμετέχουν ενεργά και είναι κοντά μου</title>
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+</head>
 
 <div class="row">
 	<div class="col-md-12">
@@ -26,8 +28,21 @@
             
 	</div>
     <script>
-       function draw(){
-           console.log("submited");
-       }
+
+[14:49:04] jSon karaoglanis: function initialize() {
+                var mapOptions = {
+                    zoom: 7,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(document.getElementById('map-canvas'),
+                        mapOptions);
+                var pos = new google.maps.LatLng(37.89982, 29.509026);
+                var image = '../img/fatsa6s.png';
+                var myLatlng;
+                var marker;
+            #{apController.markers}
+
+                map.setCenter(pos);
+            }
     </script>    
 </div>
