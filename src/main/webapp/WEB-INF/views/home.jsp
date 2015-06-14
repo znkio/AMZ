@@ -38,8 +38,8 @@
  				<div class="col-md-6">
  					<i class="fa fa-flask"></i>
  					<h4>Προσφορές</h4>
- 					<p>Βρείτε τις προσοφρές από επιχειρήσεις κοντά σας.</p>
- 					<p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+ 					<p>Βρείτε τις προσφoρές από επιχειρήσεις κοντά σας</p>
+ 					<p><br/><a href="#" class="btn btn-theme">Περισσότερα</a></p>
  				</div>
 	 		</div>
 	 	</div><! --/container -->
@@ -47,21 +47,6 @@
 	
         
 	 
-	<!-- *****************************************************************************************************************
-	 TESTIMONIALS
-	 ***************************************************************************************************************** -->
-	 <div id="twrap">
-	 	<div class="container centered">
-	 		<div class="row">
-	 			<div class="col-lg-8 col-lg-offset-2">
-	 			<i class="fa fa-comment-o"></i>
-	 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-	 			<h4><br/>Marcel Newman</h4>
-	 			<p>WEB DESIGNER - BLACKTIE.CO</p>
-	 			</div>
-	 		</div><! --/row -->
-	 	</div><! --/container -->
-	 </div><! --/twrap -->
 	 
 	
 	 
