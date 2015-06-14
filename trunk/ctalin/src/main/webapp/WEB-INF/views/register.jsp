@@ -11,6 +11,11 @@
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<input name="j_username" type="text" class="form-control" placeholder="Email address" required autofocus>
 			<input name="j_password" type="password" class="form-control" placeholder="Password" required>
+                        <input name="j_password" type="afm" class="form-control" placeholder="Α.Φ.Μ" required>
+                        <select name="radius" class="form-control">
+                            <option value="customer">Καταναλωτής</option>
+                            <option value="company">Επιχείριση</option>
+                        </select>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 		</form>
 	</div>
