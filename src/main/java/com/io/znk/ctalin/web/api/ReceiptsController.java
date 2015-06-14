@@ -49,7 +49,7 @@ public class ReceiptsController {
         }
         Customer acust = new Customer(customerId);
         receipt.setCustomerID(acust);
-        return new ResponseEntity(this.rs.updateReceipt(receipt), HttpStatus.OK);
+        return new ResponseEntity(this.rs.createReceipt(receipt), HttpStatus.OK);
     }
     
     @RequestMapping(value = "/company/{companyId}", method = RequestMethod.PUT)
