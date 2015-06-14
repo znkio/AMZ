@@ -23,9 +23,10 @@
             <li><a class="navbar-brand" href="<c:url value="/about"/>">ABOUT</a></li>
             <li><a class="navbar-brand" href="<c:url value="/contact"/>">CONTACT</a></li>
             <li><a class="navbar-brand" href="<c:url value="/nearme"/>">ΕΠΙΧΕΙΡΗΣΕΙΣ</a></li>
-            <li><a class="navbar-brand" href="<c:url value="/reports"/>">ΑΝΑΦΟΡΕΣ</a>
+            <li>
+                <a class="navbar-brand" href="<c:url value='/mobile/view/report/customer/' />"  class="dropdown-toggle"class="dropdown-toggle"  data-toggle="dropdown">ΑΝΑΦΟΡΕΣ <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="blog.html">ΠΕΛΑΤΗ</a></li>
+                <li><a href="<c:url value='/mobile/view/report/customer/' />">ΠΕΛΑΤΗ</a></li>
                 <li><a href="single-post.html">ΕΠΙΧΕΙΡΗΣΗ</a></li>
               </ul>
             </li>
