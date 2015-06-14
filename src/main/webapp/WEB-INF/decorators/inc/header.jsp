@@ -20,13 +20,14 @@
         <div class="navbar-collapse collapse navbar-right">
             <ul class="nav navbar-nav">
                 <li class="active"><a class="navbar-brand" href="<c:url value="/mobile"/>">HOME</a></li>
-                <li><a class="navbar-brand" href="<c:url value="/contact"/>">CONTACT</a></li>
+                <li><a class="navbar-brand" href="<c:url value="/about"/>">ABOUT</a></li>
                 <li><a class="navbar-brand" href="<c:url value="/nearme"/>">ΕΠΙΧΕΙΡΗΣΕΙΣ</a></li>
                 <li><a class="navbar-brand" href="<c:url value='/mobile/view/report/customer/' />">ΑΝΑΦΟΡΕΣ ΠΕΛΑΤΗ</a></li>
                 <li><a class="navbar-brand" href="<c:url value='/mobile/view/report/createoffer/'/>">ΔΗΜΙΟΥΡΓΙΑ ΠΡΟΣΦΟΡΑΣ</a></li>
                 <li><a class="navbar-brand" href="<c:url value='/mobile/view/report/customerprofile/' />">ΠΡΟΦΙΛ ΧΡΗΣΤΗ</a></li>
                 <li><a class="navbar-brand" href="<c:url value='/mobile/view/report/companyprofile/' />">ΠΡΟΦΙΛ ΕΠΙΧΕΙΡΗΣΗΣ</a></li>
-                <li><a class="navbar-brand" href="<c:url value="/about"/>">ABOUT</a></li>
+
+                <li><a class="navbar-brand" href="<c:url value="/contact"/>">CONTACT</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
