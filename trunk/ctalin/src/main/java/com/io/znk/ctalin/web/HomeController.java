@@ -72,7 +72,7 @@ public class HomeController {
 		return "reports";
 	}
 	
-        @RequestMapping(value = "/customer", method = RequestMethod.GET)
+        @RequestMapping(value = "/customerprofile", method = RequestMethod.GET)
 	public String customer(Locale locale, Model model) {
 		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
 		Date date = new Date();
@@ -82,7 +82,7 @@ public class HomeController {
 		return "customerprofile";
 	}
         
-        @RequestMapping(value = "/company", method = RequestMethod.GET)
+        @RequestMapping(value = "/companyprofile", method = RequestMethod.GET)
 	public String company(Locale locale, Model model) {
 		logger.info("Welcome to CTALIN! The client locale is {}.", locale);
 		Date date = new Date();
